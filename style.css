@@ -201,7 +201,7 @@ margin: 100px;
 .form-section:hover {
  
   transition: transform 0.3s ease;
-  background-color: #fff1f1;
+  background-color: #ffebeb;
 }
 .form-section h2 {
 margin: 20px;
