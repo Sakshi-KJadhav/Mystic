@@ -1,0 +1,202 @@
+{
+  "Pear": {
+    "Western": [
+      "White oversized shirt with light blue wide-leg jeans",
+      "Black square-neck top with high-waisted beige trousers",
+      "Lavender puff sleeve blouse with black bootcut jeans",
+      "Peach peplum top with dark wash skinny jeans",
+      "Grey V-neck knit top with light denim mom jeans",
+      "Olive green cropped jacket with straight-leg black pants",
+      "Sky blue ruffle top with cream paperbag trousers",
+      "Soft yellow wrap top with navy cigarette pants",
+      "Powder pink cardigan with white flared pants",
+      "Denim jacket over a pastel tank with black ankle jeans"
+    ],
+    "Indian": [
+      "Straight-cut white chikankari kurti with pastel pink palazzos",
+      "Light green A-line kurta with beige leggings",
+      "Sky blue printed kurti with white cotton pants",
+      "Mustard flared kurti with dark maroon churidar",
+      "Peach high-slit kurti with cream straight pants",
+      "Ivory Anarkali with baby blue dupatta",
+      "Mauve cotton kurti with block print palazzos",
+      "Navy blue kurta with contrast red dhoti pants",
+      "Pale yellow kurta with mirror work and white sharara",
+      "Mint green kurta with floral prints and peach leggings"
+    ],
+    "Indo-Fusion": [
+      "Indigo short kurti with distressed denim jeans",
+      "Rust-orange crop top with embroidered palazzos",
+      "Long white ethnic shrug over a plain black tee and leggings",
+      "Teal fusion tunic with blue cigarette pants",
+      "Flowy printed kurta tucked into high-rise jeans",
+      "Pink wrap kurta over black wide pants",
+      "Asymmetrical hem tunic with slim blue jeans",
+      "Peach ethnic shirt with khaki culottes",
+      "Maroon front-slit kurti with denim skirt",
+      "Cream boho kurti with soft grey joggers"
+    ],
+    "Comfort": [
+      "Oversized cotton tee in lilac with black joggers",
+      "Boxy beige sweatshirt with soft mint lounge pants",
+      "Sleeveless sky blue tank with grey culottes",
+      "Loose-fit grey tee with navy flared lounge pants",
+      "Pastel green co-ord cotton set",
+      "Peachy kaftan dress with side tie",
+      "White hoodie with deep blue leggings",
+      "Soft printed tunic with cotton pyjamas",
+      "Pink drawstring top with white harem pants",
+      "Olive oversized button-up shirt with soft black trousers"
+    ]
+  },
+  "Apple": {
+    "Western": [
+      "Navy wrap top with slim grey trousers",
+      "Vertical striped shirt in white & blue with tapered pants",
+      "Teal empire-line blouse with beige jeans",
+      "Black boat-neck top with olive peg pants",
+      "Soft green tunic with ankle-length white jeans",
+      "Light brown flowy blouse with dark blue straight-fit jeans",
+      "Burgundy cropped cardigan with slim black pants",
+      "Blush pink dolman top with navy stretch trousers",
+      "White flowy peasant blouse with structured denim",
+      "Mustard sleeveless top with high-waisted culottes"
+    ],
+    "Indian": [
+      "Long navy blue straight kurta with white churidar",
+      "Beige printed kurti with teal palazzos",
+      "Peach Angrakha style kurta with off-white pants",
+      "Rust-red side-slit kurti with navy leggings",
+      "Black A-line kurta with grey ankle pants",
+      "Bottle green high-slit kurti with white dhoti pants",
+      "Soft lilac cotton kurta with floral dupatta and pants",
+      "Maroon straight-fit kurti with contrasting mustard leggings",
+      "Olive green kurta with embroidery and cream palazzos",
+      "Dusty rose floor-length Anarkali with minimal gold print"
+    ],
+    "Indo-Fusion": [
+      "Navy short kurta with wide-legged jeans",
+      "Printed wrap kurta over brown trousers",
+      "Peach peplum fusion top with khaki jeggings",
+      "Long tunic-style shrug over a black crop and jeans",
+      "Olive ethnic tunic tucked into denim joggers",
+      "Mauve printed shirt-style kurta with white jeans",
+      "Beige kurti-dress fusion with tan leggings",
+      "Bottle green Indo-western dress with front slit",
+      "Embroidered ethnic crop top with paperbag pants",
+      "Sky blue asymmetric tunic with flared trousers"
+    ],
+    "Comfort": [
+      "Oversized striped cotton shirt with beige joggers",
+      "Soft pink tunic with elastic white pants",
+      "Grey lounge tank with olive harem pants",
+      "Kaftan top in peach with soft cotton pants",
+      "White co-ord cotton pyjama set",
+      "Lavender hoodie with straight-fit lounge trousers",
+      "Relaxed tunic with blue pajama pants",
+      "Soft co-ord sweatshirt set in sage green",
+      "Cropped tee with high-stretch joggers",
+      "Sky blue oversized tee with brown drawstring pants"
+    ]
+  },
+  "Rectangle": {
+    "Western": [
+      "Coral belted top with white tapered pants",
+      "Soft yellow puff sleeve blouse with mom jeans",
+      "Black cropped tee with lavender wide-leg trousers",
+      "Blue plaid shirt tucked in high-rise denim",
+      "Mauve structured blazer over white slim-fit jeans",
+      "Beige tank with longline cardigan and black leggings",
+      "Olive mock neck top with cream paperbag pants",
+      "Sky blue wrap top with navy ankle jeans",
+      "Rust-orange tucked shirt with off-white flare pants",
+      "White graphic tee with brown high-rise straight jeans"
+    ],
+    "Indian": [
+      "Peach embroidered kurti with white leggings",
+      "Mint green straight kurta with sky blue palazzos",
+      "Light brown printed kurta with maroon churidar",
+      "Pale pink high-low kurti with off-white pants",
+      "Navy slit kurta with ankle-length trousers",
+      "Aqua blue A-line kurta with floral dupatta",
+      "Ivory short kurti with indigo printed pants",
+      "Dusty green cotton kurti with beige sharara",
+      "Light lilac kurta with striped palazzos",
+      "Lemon yellow kurta with khaki leggings"
+    ],
+    "Indo-Fusion": [
+      "Printed cotton kurti over flared black pants",
+      "Teal sleeveless kurta with denim culottes",
+      "Layered kurti with skinny jeans and belt",
+      "Magenta Indo-fusion crop with harem trousers",
+      "High-slit kurta with front-tie jeans",
+      "Peach ethnic tunic with cargo pants",
+      "Ethnic print shrug over neutral lounge set",
+      "Pale yellow kurti tucked in joggers",
+      "Cowl hem shirt-kurta with stretch trousers",
+      "Striped front-slit kurti with fitted denims"
+    ],
+    "Comfort": [
+      "Grey co-ord set with drawstring shorts",
+      "Soft teal sweatshirt with white loose pants",
+      "Lilac oversized tee with charcoal leggings",
+      "Beige tunic with side-slit soft trousers",
+      "Mint ribbed set with round-neck top",
+      "White cotton top with coral joggers",
+      "Light brown drop-shoulder top with linen pants",
+      "Blue striped oversized shirt with jersey leggings",
+      "Dusty pink longline tee with cotton bottoms",
+      "Black boxy tee with light blue flared joggers"
+    ]
+  },
+  "Hourglass": {
+    "Western": [
+      "Fitted white blouse with navy high-rise jeans",
+      "Wrap top in wine red with slim black trousers",
+      "Square neck beige top with dark straight-fit denims",
+      "Olive green belted shirt with cream trousers",
+      "Peplum tank in coral with white jeans",
+      "Black fitted tee with light grey flared pants",
+      "Ribbed crop top with long cardigan and jeans",
+      "Structured blazer in camel over tapered denim",
+      "Sky blue balloon sleeve top with white paperbag pants",
+      "Teal body-fit top with high-waist culottes"
+    ],
+    "Indian": [
+      "Black silk kurta with red palazzos",
+      "Wine colored high-slit kurta with ankle leggings",
+      "Teal embroidered kurti with off-white churidar",
+      "Light peach cotton kurta with print pants",
+      "Bottle green kurta with front pleats and leggings",
+      "Dusty blue kurti with flared beige pants",
+      "Rust red A-line kurta with contrast palazzos",
+      "Cream and gold kurta with silk trousers",
+      "Light pink Anarkali with matching leggings",
+      "Mint front-slit kurti with printed sharara"
+    ],
+    "Indo-Fusion": [
+      "Black crop kurta with patterned culottes",
+      "Maroon ethnic wrap top with skinny jeans",
+      "Long indigo shrug over camisole and flared pants",
+      "Soft yellow Indo shirt with white dhoti trousers",
+      "Belted floral kurta with ankle-length jeans",
+      "Layered cotton kurti with stretchable slacks",
+      "Coral long tunic with printed jeggings",
+      "Front-knot ethnic top with tailored shorts",
+      "Printed peplum kurta with fitted trousers",
+      "Olive kurta jacket over a crop top and pants"
+    ],
+    "Comfort": [
+      "Stretch jersey set in sky blue",
+      "Loose beige tee with floral soft pants",
+      "V-neck longline top with wide cotton trousers",
+      "Soft co-ord sweatshirt with joggers",
+      "Lavender oversized shirt with cotton leggings",
+      "White high-low tunic with cream lounge pants",
+      "Coral printed top with navy slacks",
+      "Oversized hoodie with black soft trousers",
+      "Mint ribbed loungewear with short-sleeve tee",
+      "Soft grey drawstring top with warm beige lowers"
+    ]
+  }
+}
