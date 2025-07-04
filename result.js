@@ -1,3 +1,5 @@
+console.log("✅ JS is working!");
+document.body.insertAdjacentHTML("beforeend", "<p style='color:red;'>JS loaded</p>");
 const data = JSON.parse(localStorage.getItem("formData"));
 
 async function getOutfits() {
