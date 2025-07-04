@@ -144,6 +144,43 @@ html {
   scroll-behavior: smooth;
 }
 
+
+@media (max-width: 1000px) {
+  .outfit-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .navcontainer {
+    font-size: small;
+  display: flex;
+    flex-direction: column;
+    }
+ .mystic-scroll {position: relative;
+  align-items: center;
+top: 50px;
+margin: 0%;}
+  #web-search-bar.button {
+    align-items: center;}
+  #google-search-form {
+    display: flex;
+    flex-direction: column;
+  margin-top: 0;}
+    #search-query {display: flex;
+    right: 30px;
+    position: relative;
+    ;}
+    nav ul {
+    display: flex;
+   padding: 40px;
+ 
+    }
+    /* .navcontainer{
+   
+    } */
+#outfit-results {
+    padding: 0px;
+    margin-top: 200px;
+}
+}
 </style>
   <!-- Outfit results will be injected here by JS -->
   
