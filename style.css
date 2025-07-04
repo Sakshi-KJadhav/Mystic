@@ -265,7 +265,11 @@ html {
 
 
 
-
+@media (max-width: 768px) {
+  .navcontainer, nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }}
 
 
 
