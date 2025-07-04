@@ -221,13 +221,14 @@ text-align: center;
     border: #fff9f9 solid 1px;
     }
 
-   input, select { max-width: 600px;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      justify-content: center;
-    }
+  input, select {
+    max-width: 600px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    justify-content: center;
+  }
 
     button {
       padding: 10px;
