@@ -85,4 +85,4 @@ document.getElementById('google-search-form').addEventListener('submit', functio
     // Open Google Images search in a new tab
     window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(query), '_blank');
   }
-});
+});console.log("Result.js is loaded");
