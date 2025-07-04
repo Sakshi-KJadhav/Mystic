@@ -58,20 +58,28 @@
   
 
   
-<div class="form-container">
-  <div class="slay-animate" id="slayText">Fashion is not about trends. It's about dressing in a way that expresses who you are — confidently, comfortably, and unapologetically  </div>
-  <section class="form-section">
-    <h2>Enter Your Measurements</h2>
-    <form>
-      <input type="number" placeholder="Bust (in cm)" required>
-      <input type="number" placeholder="Waist (in cm)" required>
-      <input type="number" placeholder="Shoulders (in cm)" required>
-      <input type="number" placeholder="Hips (in cm)" required>
-     
-      <button type="submit">Submit</button>
-    </form>
-  </section>
-</div>
+ <div class="options-container" style="display: flex; justify-content: center; gap: 40px; margin: 60px 0;">
+      <!-- Option 1: Upload Photo -->
+      <div class="option-card" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 32px 24px; text-align: center;">
+        <h3 style="font-family: 'Michroma', sans-serif; color: #F7A8B8;">Upload Your Photo</h3>
+        <form id="photo-upload-form">
+          <input type="file" accept="image/*" id="photo-upload" style="margin: 20px 0;">
+          <button type="submit" style="padding: 8px 24px; background: #F7A8B8; color: #fff; border: none; border-radius: 8px; font-family: 'Michroma', sans-serif; cursor: pointer;">Upload</button>
+        </form>
+        <div id="photo-preview" style="margin-top: 16px;"></div>
+      </div>
+      <!-- Option 2: Enter Measurements -->
+      <div class="option-card" style="background: #fff; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 32px 24px; text-align: center;">
+        <h3 style="font-family: 'Michroma', sans-serif; color: #F7A8B8;">Enter Your Measurements</h3>
+        <form id="measurements-form">
+          <input type="number" placeholder="Bust (in cm)" required style="margin: 8px 0; width: 80%; padding: 6px;"><br>
+          <input type="number" placeholder="Waist (in cm)" required style="margin: 8px 0; width: 80%; padding: 6px;"><br>
+          <input type="number" placeholder="Shoulders (in cm)" required style="margin: 8px 0; width: 80%; padding: 6px;"><br>
+          <input type="number" placeholder="Hips (in cm)" required style="margin: 8px 0; width: 80%; padding: 6px;"><br>
+          <button type="submit" style="padding: 8px 24px; background: #F7A8B8; color: #fff; border: none; border-radius: 8px; font-family: 'Michroma', sans-serif; cursor: pointer;">Submit</button>
+        </form>
+      </div>
+    </div>
   </div>
 
   <footer class="home-footer">

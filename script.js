@@ -32,3 +32,15 @@ document.querySelector("form").addEventListener("submit", (e) => {
   localStorage.setItem("formData", JSON.stringify(data));
   window.location.href = "result.html";
 });
+ document.getElementById('photo-upload-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const input = document.getElementById('photo-upload');
+      const preview = document.getElementById('photo-preview');
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          preview.innerHTML = '<img src="' + e.target.result + '" style="max-width:200px; border-radius:12px;"/>';
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    });
