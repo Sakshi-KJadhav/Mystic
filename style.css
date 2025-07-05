@@ -8,7 +8,7 @@
    body{
       height: 100%;
      font-family: 'Times New Roman', Times, serif;
-      background-color: white;
+      background-color: #B1AB86;
       }
 
    
@@ -18,7 +18,7 @@ header{
       top: 0;
       left: 0;
       width: 100%;
-      padding: 20px 40px;
+      padding: 20px;
      
       background-color: transparent;
       color: transparent;
@@ -27,14 +27,14 @@ header{
     }
 
   header.scrolled {
-      background-color: white;
-      color: black;
+      background-color:white;
+      color: #819067;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
 .navcontainer {
       position: relative;
-       max-width: 1200px;
+    
      ;}
 
     nav ul { display: flex;
@@ -55,7 +55,7 @@ header{
       color: transparent;}
       
 header.scrolled nav ul li a {
-      color: black;}
+      color: #819067;}
 
 
     header.scrolled .hero {
@@ -65,7 +65,7 @@ header.scrolled nav ul li a {
   .mystic-scroll {
       position: absolute;
       transform: translateX(-50%);
-      font-size: 24px;
+      font-size: 28px;
        transform: translate(-50%, -50%);
       font-weight: bold;
       color: transparent;
@@ -79,7 +79,7 @@ header.scrolled nav ul li a {
  header.scrolled .mystic-scroll {
       display: flex;
       justify-content: center;
-      color:  #F7A8B8;
+      color: #0A400C;
        font-family: 'Michroma', sans-serif;
     }
     
@@ -115,9 +115,8 @@ header.scrolled nav ul li a {
   background: url('/bg.png') no-repeat center center;
   background-size: cover;
   background-repeat: no-repeat;
-
   width: 100%;
-  min-height: 100vh;
+  min-height: 150vh;
 
   display: flex;
   justify-content: center;
@@ -131,16 +130,18 @@ header.scrolled nav ul li a {
 }
 
  .content {
-      height: 200vh;
-      background-color: white;
+      height: 250vh;
+      ;
     }
 
-    .content h2{
+    .content h2{color: #0A400C;
         text-align: center;
-        padding: 20px;
-        margin:50px;
+        padding: 80px;
+       height:100px;
+        margin-bottom: 80px;
+        width: 100%;
          font-family: 'Michroma', sans-serif;
-         background-color: white;
+         background-color:white;
     }
 
 
@@ -193,7 +194,7 @@ header.scrolled nav ul li a {
  position: relative;
  
  width: 50%;
-  color:#000000;
+  color:#0A400C;
   font-family: 'Times New Roman', sans-serif;
   font-size: 2rem;
   font-weight: bold;
@@ -211,20 +212,16 @@ header.scrolled nav ul li a {
  width: 50%;
   
   padding: 40px;
-  background-color: #ffffff;
-  color: #333;
+  background-color: white;
+  color: #0A400C;
 margin: 100px;
-  border: #F7A8B8 solid 1px;
+  border:#0A400C solid 1px;
 }
-.form-section:hover {
- 
-  transition: transform 0.3s ease;
-  background-color: #ffebeb;
-}
+
 .form-section h2 {
 margin: 20px;
 text-align: center;
-       background-color: #fff9f9;
+     
 
 
     }
@@ -239,7 +236,7 @@ text-align: center;
     border: #fff9f9 solid 1px;
     }
 
-  input, select {
+  input, select {color:#0A400C;
     max-width: 600px;
     padding: 10px;
     font-size: 16px;
@@ -247,32 +244,34 @@ text-align: center;
     border-radius: 4px;
     justify-content: center;
   }
-
+input, select::selection {
+    border-color: #0A400C;}
     button {
       padding: 10px;
       font-size: 16px;
-      background-color: #F7A8B8;
+      background-color: #B1AB86;
+     
       color: white;
       border: none;
       cursor: pointer;
       border-radius: 4px;}
-      
-          button:hover {
-                    background-color: #ff91a7;
+      button:hover {
+                    background-color: #819067;
                     transition: 0.5s;}
 
 
     .home-footer {
-      background-color:#F7A8B8;
+      background-color:white;
       display:flex;
       flex-direction: column;
-        color: white;
+        color: #0A400C;
         
         padding: 20px;
         position: relative;
         bottom: 0;
         width: 100%;
         }
+
 
         .about{
            min-height: fit-content; 
@@ -326,14 +325,32 @@ html {
   }
 
   .mystic-scroll {
-    font-size: 1.2rem;
-    position: relative;
-    left:10px ;
-  }
+      position: absolute;
+      font-size: 19px;
+      left:10px;
+      font-weight: bold;
+      color: transparent;
+      margin-left: 20px;
+      transition: opacity 0.3s ease;
+      top: 50%;
+      transform: translateX(-50%);
+      font-family: 'Michroma', sans-serif;
+  transform: translate(-50%, -50%);
+    }
 
-  .navcontainer li {
-    font-size: 14px;
-  }
+  .navcontainer {
+      position: relative;
+      
+     ;}
+
+    nav ul { display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      list-style: none;
+     font-size: 8px;;
+      gap: 10px;
+    }
+
 }
 
 
