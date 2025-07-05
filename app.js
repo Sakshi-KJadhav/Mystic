@@ -5,7 +5,7 @@ const fs = require("fs");
 const app = express();
 app.use(
   cors({
-    origin: "https://yourmystic.vercel.app/index.html", // your actual frontend domain
+    origin: "https://yourmystic.vercel.app/", // your actual frontend domain
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
   })
@@ -45,6 +45,7 @@ app.post("/api/recommendations", (req, res) => {
   res.json({ shape, recommendations: recommendationsArray });
 });
 
-app.listen(5050, () => {
-  console.log("Server running on port 5050");
+const PORT = process.env.PORT || 5050;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
