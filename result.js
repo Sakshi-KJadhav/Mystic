@@ -42,7 +42,7 @@ async function getOutfits() {
   card.style.border = "1px solid #ccc";
   card.style.borderRadius = "8px";
   card.style.overflow = "hidden";
-  card.style.boxShadow = "0 2px 8px rgba(0,0,0,0.05)";
+  card.style.boxShadow = "0 2px 8px #819067";
   card.style.transition = "box-shadow 0.2s, background-color 0.2s";
   card.onmouseover = () => {
     card.style.transform = "scale(1.02)";
@@ -51,7 +51,7 @@ async function getOutfits() {
   };
   card.onmouseout = () => {
     card.style.transform = "scale(1)";
-    card.style.boxShadow = "0 2px 8px rgba(0,0,0,0.05)";
+    card.style.boxShadow = "0 2px 8px #ccc";
     card.style.backgroundColor = "#fff";
   };
   // Add click event to fill the search bar
