@@ -5,7 +5,7 @@ const fs = require("fs");
 const app = express();
 app.use(
   cors({
-    origin: "https://yourmystic.vercel.app/", // your actual frontend domain
+    origin: "https://yourmystic.vercel.app", // your actual frontend domain
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],
   })
