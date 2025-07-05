@@ -4,7 +4,7 @@ const data = JSON.parse(localStorage.getItem("formData"));
 
 async function getOutfits() {
   try {
-    const res = await fetch("https://your-app-name.onrender.com/api/recommendations", {
+    const res = await fetch("https://mystic-style-backend.onrender.com/api/recommendations", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -13,6 +13,9 @@ async function getOutfits() {
     });
 
     const result = await res.json();
+
+
+  
 
     const container = document.createElement("section");
     container.id = "outfit-results";
