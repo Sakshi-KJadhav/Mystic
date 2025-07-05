@@ -3,7 +3,14 @@ const cors = require("cors");
 const fs = require("fs");
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://yourmystic.vercel.app/index.html", // your actual frontend domain
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
+
 app.use(express.json());
 
 const outfits = JSON.parse(fs.readFileSync("./outfits.json", "utf8"));
