@@ -4,7 +4,7 @@ const data = JSON.parse(localStorage.getItem("formData"));
 
 async function getOutfits() {
   try {
-    const res = await fetch("https://mystic-z9ep.onrender.com//api/recommendations", {
+    const res = await fetch("https://mystic-z9ep.onrender.com/api/recommendations", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
