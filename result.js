@@ -4,7 +4,7 @@ const data = JSON.parse(localStorage.getItem("formData"));
 
 async function getOutfits() {
   try {
-    const res = await fetch("http://127.0.0.1:5050/api/recommendations", {
+    const res = await fetch("https://your-app-name.onrender.com/api/recommendations", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
