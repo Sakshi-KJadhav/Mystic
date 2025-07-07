@@ -8,7 +8,7 @@
    body{
       height: 100%;
      font-family: 'Times New Roman', Times, serif;
-      background-color: #B1AB86;
+      background-color:white;
       }
 
    
@@ -113,46 +113,62 @@ header.scrolled nav ul li a {
 
 .hero {
   background: url('/bg.png') no-repeat center center;
-  background-size: cover;
+  background-size:cover;
   background-repeat: no-repeat;
+  background-position: center;
   width: 100%;
-  min-height: 150vh;
+  min-height: 170vh;
 
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 50px;
+  justify-content:space-around;
+  
+  
 
+  position: relative;
   font-family: 'Michroma', sans-serif;
   color: white;
-  font-size: 50px;
-  text-align: center;
+  font-size: 85px;
+ 
+}
+.hero h1{
+  top:30px;
+  position: relative;
 }
 
+/* .hero.scrolled.h1{
+  justify-content: center;
+  align-items: flex-start;
+  position: sticky;
+  top: 0;
+  transition: all 0.3s ease;
+} */
  .content {
-      height: 250vh;
+      height: max-content;
       ;
+    
+     
     }
 
     .content h2{color: #0A400C;
         text-align: center;
         padding: 80px;
-       height:100px;
-        margin-bottom: 80px;
+      
+       
         width: 100%;
          font-family: 'Michroma', sans-serif;
          background-color:white;
+         font-size:40px;
     }
 
 
 
 .marquee-track {
   display: flex;
- 
+  
   animation: marquee 18s linear infinite;
   gap: 32px;
-
-
+ padding: 0px 0 80px 0;
+margin: 0%;
   
 }
 
@@ -186,6 +202,10 @@ header.scrolled nav ul li a {
 .form-container{
   display: flex;
   flex-direction: row-reverse;
+   
+   height:max-content;
+   margin: 0%;
+   padding:50px 0 50px 30px;
 }
 
   .slay-animate {
@@ -194,7 +214,7 @@ header.scrolled nav ul li a {
  position: relative;
  
  width: 50%;
-  color:#0A400C;
+  color: #0A400C;
   font-family: 'Times New Roman', sans-serif;
   font-size: 2rem;
   font-weight: bold;
@@ -212,15 +232,17 @@ header.scrolled nav ul li a {
  width: 50%;
   
   padding: 40px;
-  background-color: white;
+   background-color: white; 
   color: #0A400C;
-margin: 100px;
+
   border:#0A400C solid 1px;
 }
 
 .form-section h2 {
 margin: 20px;
+background-color: transparent;
 text-align: center;
+padding: 0%;
      
 
 
@@ -233,7 +255,7 @@ text-align: center;
       flex-direction: column;
       gap: 15px;
      align-content: center;
-    border: #fff9f9 solid 1px;
+  
     }
 
   input, select {color:#0A400C;
@@ -249,22 +271,22 @@ input, select::selection {
     button {
       padding: 10px;
       font-size: 16px;
-      background-color: #B1AB86;
-     
-      color: white;
+      background-color:#819067;
+     margin-top: 10px;;
+      color:white;
       border: none;
       cursor: pointer;
       border-radius: 4px;}
       button:hover {
-                    background-color: #819067;
+                    background-color: #515b40;
                     transition: 0.5s;}
 
 
     .home-footer {
-      background-color:white;
-      display:flex;
+ background-color: #819067;    
+   display:flex;
       flex-direction: column;
-        color: #0A400C;
+        color: white;
         
         padding: 20px;
         position: relative;
@@ -283,101 +305,130 @@ html {
 
 
 
-@media (max-width: 768px) {
-  .form-section {
-    width: 100%;
-    margin: 20px 0;
-    padding: 20px;
+
+@media(max-width:480px) {
+  *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
   }
-
-  .slay-animate {
-    width: 100%;
-    font-size: 1.5rem;
-    padding: 16px;
-    text-align: center;
+  body{
+    margin: 0;
   }
-
-  input, select {
-    width: 100%;
-    max-width: 100%;
-  }
-
-
-
-  .navcontainer {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .form-container {
-    flex-direction: column;
-    margin-top: 40px;
-  }
-
-  .outfit-container {
-    grid-template-columns: 1fr; /* one column on small screens */
-  }
+.hero{
+  
+  background-position: center;
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  width: 100%;
+  justify-content: center;
+  font-size: 40px;
+ height: 80%;
+ position: relative;
+ 
 }
-
-@media (max-width: 480px) {
-  body {
-    padding: 10px;
-  }
-
+.hero h1{
+  top:150px;
+  position: relative;
+ 
+}
   .mystic-scroll {
-      position: absolute;
+     
       font-size: 19px;
-      left:10px;
-      font-weight: bold;
-      color: transparent;
-      margin-left: 20px;
-      transition: opacity 0.3s ease;
+   left:25%;
+    margin: 0%;
+     
+     
       top: 50%;
       transform: translateX(-50%);
-      font-family: 'Michroma', sans-serif;
+      
   transform: translate(-50%, -50%);
     }
 
-  .navcontainer {
+  header.scrolled.mystic-scroll {
+      left: 20px;
       position: relative;
-      
-     ;}
+     max-width: fit-content;}
 
     nav ul { display: flex;
       justify-content: flex-end;
       align-items: center;
       list-style: none;
-     font-size: 8px;;
+     font-size: 12px;
       gap: 10px;
     }
+    .content {
+      height: max-content;
+    margin-bottom: 50px;}
+.content h2 {
+  font-size: 1.5rem;}
 
-}
-
-
-@media (max-width: 768px) {
-  .marquee-track img {
-    height: 280px;
+  .marquee-track img{
+    height: 250px;
   }
+    .form-container {
+      flex-direction: column;
+      align-items: center;
+   margin-top: 30px;;
+     padding: 0;
+    
+    }
+.form-section{
+  width:80%;
+  margin-top: 20px;
+
+} 
+.form-section h2{
+  font-size: 1rem;
+  margin:0%;
+margin-bottom: 20px;
+  padding: 0%;
 }
-@media (max-width: 10000px) {
+form{
+  gap:8px;
+  align-items: center;
+}
+  input, select {
+    max-width: fit-content;
+ 
+}
+button{
+  margin-top: 8px;;
+}
+.slay-animate {
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 10px;
+}
+}
+
+
+ @media(min-width:480px) and (max-width:1000px)  {
   .hero {
-    background-position: left top; 
-    padding: 20px;
+    background-position:left;
+   padding: 20px;;
    
   }
-}
-
-
-
-
-@media (max-width: 480px) {
-  .hero {
-    background-position: left top;  /* for very small devices */
-   font-size:1rem;
-    padding: 10px;
-    min-height: 80vh;
+.hero h1{
+  top: 100px;
+  position: relative;}
+ 
+  .content{
+    margin:0 ;
   }
-}
+
+  .form-section h2{
+    font-size: 1.2rem;
+  }
+} 
+
+
+
+ 
+
+
 
 
 
