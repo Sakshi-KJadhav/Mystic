@@ -92,6 +92,48 @@ document.getElementById('google-search-form').addEventListener('submit', functio
   }
 });
 
+function generateStylingSuggestions(data) {
+  const stylingSection = document.createElement("section");
+  stylingSection.id = "styling-suggestions";
+  stylingSection.style.padding = "100px 50px";
+  stylingSection.style.backgroundColor = "#f4f9f8";
+
+  const heading = document.createElement("h2");
+  heading.textContent = "🧵 Styling Suggestions for You";
+  heading.style.fontSize = "24px";
+  heading.style.marginBottom = "30px";
+  stylingSection.appendChild(heading);
+
+  const suggestions = getStylingSuggestions(data);
+
+  if (!suggestions.length) {
+    const noneText = document.createElement("p");
+    noneText.textContent = "No styling suggestions available.";
+    stylingSection.appendChild(noneText);
+  }
+
+  suggestions.forEach((item) => {
+    const card = document.createElement("div");
+    card.style.border = "1px solid #ddd";
+    card.style.borderRadius = "10px";
+    card.style.padding = "20px";
+    card.style.marginBottom = "20px";
+    card.style.backgroundColor = "#fff";
+    card.style.boxShadow = "0 2px 6px rgba(0,0,0,0.05)";
+    card.style.transition = "all 0.2s ease";
+
+    card.innerHTML = `
+      <h3 style="margin-bottom: 10px;">🔸 ${item.element}</h3>
+      <p><strong>Try:</strong> ${item.try}</p>
+      <p><strong>Avoid:</strong> ${item.avoid}</p>
+      <p><strong>Why:</strong> ${item.why}</p>
+    `;
+
+    stylingSection.appendChild(card);
+  });
+
+  document.body.appendChild(stylingSection);
+}
 
 
 function getStylingSuggestions(data) {
