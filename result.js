@@ -51,7 +51,7 @@ async function getOutfits() {
   };
   card.onmouseout = () => {
     card.style.transform = "scale(1)";
-    card.style.boxShadow = "0 2px 8px #ccc";
+    card.style.boxShadow = "0 2px 8px   #819067" ;
     
   };
   // Add click event to fill the search bar
