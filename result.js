@@ -100,8 +100,9 @@ function generateStylingSuggestions(data) {
 
   const heading = document.createElement("h2");
   heading.textContent = "🧵 Styling Suggestions for You";
-  heading.style.fontSize = "24px";
+  heading.style.fontSize = "28px";
   heading.style.marginBottom = "30px";
+  heading.style.textAlign = "center";
   stylingSection.appendChild(heading);
 
   const suggestions = getStylingSuggestions(data);
@@ -110,30 +111,56 @@ function generateStylingSuggestions(data) {
     const noneText = document.createElement("p");
     noneText.textContent = "No styling suggestions available.";
     stylingSection.appendChild(noneText);
+    return;
   }
 
-  suggestions.forEach((item) => {
-    const card = document.createElement("div");
-    card.style.border = "1px solid #ddd";
-    card.style.borderRadius = "10px";
-    card.style.padding = "20px";
-    card.style.marginBottom = "20px";
-    card.style.backgroundColor = "#fff";
-    card.style.boxShadow = "0 2px 6px rgba(0,0,0,0.05)";
-    card.style.transition = "all 0.2s ease";
+  // Create table
+  const table = document.createElement("table");
+  table.style.width = "100%";
+  table.style.borderCollapse = "collapse";
+  table.style.backgroundColor = "#fff";
+  table.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.05)";
+  table.style.borderRadius = "12px";
+  table.style.overflow = "hidden";
+  table.style.fontSize = "16px";
 
-    card.innerHTML = `
-      <h3 style="margin-bottom: 10px;">🔸 ${item.element}</h3>
-      <p><strong>Try:</strong> ${item.try}</p>
-      <p><strong>Avoid:</strong> ${item.avoid}</p>
-      <p><strong>Why:</strong> ${item.why}</p>
+  // Table header
+  const thead = document.createElement("thead");
+  thead.innerHTML = `
+    <tr style="background-color: #d9ead3; color: #333;">
+      <th style="padding: 15px; border: 1px solid #ccc;">Element</th>
+      <th style="padding: 15px; border: 1px solid #ccc;">Try</th>
+      <th style="padding: 15px; border: 1px solid #ccc;">Avoid</th>
+      <th style="padding: 15px; border: 1px solid #ccc;">Why It Works</th>
+    </tr>
+  `;
+  table.appendChild(thead);
+
+  // Table body
+  const tbody = document.createElement("tbody");
+
+  suggestions.forEach((item, index) => {
+    const row = document.createElement("tr");
+    row.style.backgroundColor = index % 2 === 0 ? "#ffffff" : "#f7fdf5";
+
+    row.innerHTML = `
+      <td style="padding: 12px; border: 1px solid #ddd;"><strong>${item.element}</strong></td>
+      <td style="padding: 12px; border: 1px solid #ddd;">${item.try}</td>
+      <td style="padding: 12px; border: 1px solid #ddd;">${item.avoid}</td>
+      <td style="padding: 12px; border: 1px solid #ddd;">${item.why}</td>
     `;
 
-    stylingSection.appendChild(card);
+    tbody.appendChild(row);
   });
 
+  table.appendChild(tbody);
+  stylingSection.appendChild(table);
+
   document.body.appendChild(stylingSection);
+
+  stylingSection.scrollIntoView({ behavior: "smooth" });
 }
+
 
 
 function getStylingSuggestions(data) {
