@@ -237,51 +237,53 @@ const invertedTriangle = data.shoulder - data.hip > 5;
 
   // 3. Top Length
   if (hasShortTorso) {
-    suggestions.push({
-      element: "Top Length",
-      try: "Hip-length tops",
-      avoid: "Cropped tops or long tunics",
-      why: "Prevents further shortening of torso"
-    });
-  } else if (hasLongLegs) {
-    suggestions.push({
-      element: "Top Length",
-      try: "Longline tops, tunics",
-      avoid: "Cropped styles",
-      why: "Balances the longer leg length"
-    });
-  } else if (hasBalancedProportion) {
-    suggestions.push({
-      element: "Top Length",
-      try: "Waist-length, hip-length or mid-rise tops",
-      avoid: "Extra-long or overly cropped tops",
-      why: "Maintains vertical balance"
-    });
-  }
+  suggestions.push({
+    element: "Top Length",
+    try: "Waist-length or just below",
+    avoid: "High cropped tops or long tunics",
+    why: "Keeps torso balanced and avoids shortening"
+  });
+} else if (hasLongLegs) {
+  suggestions.push({
+    element: "Top Length",
+    try: "Hip-length or tunic-style",
+    avoid: "Overly short tops",
+    why: "Balances vertical proportions"
+  });
+} else {
+  suggestions.push({
+    element: "Top Length",
+    try: "Waist to hip-length tops",
+    avoid: "Very long or very short tops",
+    why: "Keeps balanced look for equal leg-torso proportions"
+  });
+}
+
 
   // 4. Tuck/Untuck
   if (hasShortTorso) {
-    suggestions.push({
-      element: "Tuck/Untuck",
-      try: "Front-tuck or untucked",
-      avoid: "Full tuck into high-rise bottoms",
-      why: "Avoids compressing the upper half"
-    });
-  } else if (hasLongLegs) {
-    suggestions.push({
-      element: "Tuck/Untuck",
-      try: "Full tuck or long tops over mid-rise",
-      avoid: "Short untucked tops",
-      why: "Helps visually add length to torso"
-    });
-  } else if (hasBalancedProportion) {
-    suggestions.push({
-      element: "Tuck/Untuck",
-      try: "Half-tuck or neat full tuck",
-      avoid: "Baggy untucked tops",
-      why: "Defines waist without disturbing balance"
-    });
-  }
+  suggestions.push({
+    element: "Tuck/Untuck",
+    try: "Half-tuck or untucked",
+    avoid: "Full tuck into high-rise bottoms",
+    why: "Avoids visually shortening torso"
+  });
+} else if (hasLongLegs) {
+  suggestions.push({
+    element: "Tuck/Untuck",
+    try: "Full tuck or long top with mid-rise",
+    avoid: "Short untucked tops",
+    why: "Adds visual balance to a short torso"
+  });
+} else {
+  suggestions.push({
+    element: "Tuck/Untuck",
+    try: "Neat full tuck or front-tuck",
+    avoid: "Bulky untucked tops",
+    why: "Defines waist while keeping balanced proportions"
+  });
+}
+
 
   // 5. Jeans Style
   if (pearShaped) {
@@ -309,27 +311,28 @@ const invertedTriangle = data.shoulder - data.hip > 5;
 
   // 6. Jeans Rise
   if (hasShortTorso) {
-    suggestions.push({
-      element: "Jeans Rise",
-      try: "Mid-rise",
-      avoid: "Ultra high-rise",
-      why: "Mid-rise gives structure without crowding the torso"
-    });
-  } else if (hasLongLegs) {
-    suggestions.push({
-      element: "Jeans Rise",
-      try: "High-rise",
-      avoid: "Low-rise",
-      why: "Elongates torso and flatters waist"
-    });
-  } else if (hasBalancedProportion) {
-    suggestions.push({
-      element: "Jeans Rise",
-      try: "Mid to high-rise",
-      avoid: "Super low-rise",
-      why: "Supports natural waistline balance"
-    });
-  }
+  suggestions.push({
+    element: "Jeans Rise",
+    try: "Mid-rise",
+    avoid: "Ultra high-rise",
+    why: "Avoids crowding the torso"
+  });
+} else if (hasLongLegs) {
+  suggestions.push({
+    element: "Jeans Rise",
+    try: "High-rise",
+    avoid: "Low-rise",
+    why: "Defines waist and elongates torso"
+  });
+} else {
+  suggestions.push({
+    element: "Jeans Rise",
+    try: "Mid to high-rise",
+    avoid: "Super low-rise",
+    why: "Maintains balanced silhouette"
+  });
+}
+
 
   // 7. Dress Type
   if (hourglass) {
@@ -374,20 +377,28 @@ const invertedTriangle = data.shoulder - data.hip > 5;
 
   // 9. Skirt Length
   if (hasLongLegs) {
-    suggestions.push({
-      element: "Skirt Length",
-      try: "Mini, midi",
-      avoid: "Maxi with flats",
-      why: "Accentuates long legs without drowning them"
-    });
-  } else if (hasBalancedProportion || hasShortTorso) {
-    suggestions.push({
-      element: "Skirt Length",
-      try: "Just above knee or midi with heels",
-      avoid: "Too long or too short",
-      why: "Maintains vertical balance"
-    });
-  }
+  suggestions.push({
+    element: "Skirt Length",
+    try: "Above-the-knee, midi",
+    avoid: "Floor-length that hides legs",
+    why: "Shows off long legs"
+  });
+} else if (hasShortTorso) {
+  suggestions.push({
+    element: "Skirt Length",
+    try: "Just above the knee",
+    avoid: "Very long skirts",
+    why: "Adds visual length to lower body"
+  });
+} else {
+  suggestions.push({
+    element: "Skirt Length",
+    try: "Knee to midi length",
+    avoid: "Too short or floor-length",
+    why: "Maintains visual proportion"
+  });
+}
+
 
   // 10. Jackets
   if (hasShortTorso) {
@@ -415,20 +426,28 @@ const invertedTriangle = data.shoulder - data.hip > 5;
 
   // 11. Footwear
   if (hasLongLegs) {
-    suggestions.push({
-      element: "Footwear",
-      try: "Bold flats, ankle straps",
-      avoid: "Flat boots over jeans",
-      why: "Let legs shine without chunkiness"
-    });
-  } else {
-    suggestions.push({
-      element: "Footwear",
-      try: "Low-vamp shoes, nude heels, pointed toes",
-      avoid: "Chunky ankle boots",
-      why: "Lengthens legs and keeps flow smooth"
-    });
-  }
+  suggestions.push({
+    element: "Footwear",
+    try: "Ankle strap heels, pointed flats",
+    avoid: "Heavy boots that cut the ankle",
+    why: "Flatters long legs and adds structure"
+  });
+} else if (hasShortTorso) {
+  suggestions.push({
+    element: "Footwear",
+    try: "Low vamp shoes, nude heels",
+    avoid: "Chunky ankle boots",
+    why: "Elongates leg line and balances proportions"
+  });
+} else {
+  suggestions.push({
+    element: "Footwear",
+    try: "Classic loafers, clean sandals, neutral heels",
+    avoid: "Overly bulky shoes",
+    why: "Keeps the line smooth and proportional"
+  });
+}
+
 
   // 12. Accessories
   if (hasShortTorso) {
@@ -449,13 +468,28 @@ const invertedTriangle = data.shoulder - data.hip > 5;
 
   // 13. Color Blocking
   if (pearShaped || rectangleShaped) {
-    suggestions.push({
-      element: "Color Blocking",
-      try: "Bright or light tops, dark bottoms",
-      avoid: "Bright bottoms with neutral tops",
-      why: "Pulls focus upward and balances shape"
-    });
-  }
+  suggestions.push({
+    element: "Color Blocking",
+    try: "Light or bright tops with dark bottoms",
+    avoid: "Loud bottoms with plain tops",
+    why: "Pulls attention upward and balances lower body"
+  });
+} else if (invertedTriangle) {
+  suggestions.push({
+    element: "Color Blocking",
+    try: "Dark or solid tops with lighter bottoms",
+    avoid: "Light tops with dark bottoms",
+    why: "Balances broader shoulders"
+  });
+} else {
+  suggestions.push({
+    element: "Color Blocking",
+    try: "Monochrome or balanced color contrast",
+    avoid: "Harsh color cuts at waist",
+    why: "Keeps clean and proportional visual flow"
+  });
+}
+
 
   // 14. Prints & Lines
   if (pearShaped) {
