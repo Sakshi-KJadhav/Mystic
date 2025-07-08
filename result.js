@@ -47,12 +47,12 @@ async function getOutfits() {
   card.onmouseover = () => {
     card.style.transform = "scale(1.02)";
     card.style.boxShadow = "0 4px 16px rgba(0,0,0,0.1)";
-    card.style.backgroundColor =rgb(183, 200, 154);
+    
   };
   card.onmouseout = () => {
     card.style.transform = "scale(1)";
     card.style.boxShadow = "0 2px 8px #ccc";
-    card.style.backgroundColor = "#fff";
+    
   };
   // Add click event to fill the search bar
   card.onclick = () => {
