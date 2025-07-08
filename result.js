@@ -91,6 +91,9 @@ document.getElementById('google-search-form').addEventListener('submit', functio
     window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(query), '_blank');
   }
 });
+
+
+
 function getStylingSuggestions(data) {
   const suggestions = [];
 
@@ -297,6 +300,7 @@ function getStylingSuggestions(data) {
 }
 
 
+generateStylingSuggestions(data);
 
 
 
