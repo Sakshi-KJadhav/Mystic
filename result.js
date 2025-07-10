@@ -16,7 +16,7 @@ async function getOutfits() {
 
 
     const heading = document.createElement("h2");
-    heading.textContent = `Outfit Suggestions`;
+    heading.textContent = `👗Outfit Suggestions`;
     heading.style.textAlign = "center";
     document.body.appendChild(heading);
 
