@@ -27,7 +27,7 @@ async function getOutfits() {
 
     result.recommendations.forEach((cat) => {
       const sectionWrapper = document.createElement("div");
-      sectionWrapper.style.marginTop = "60px";
+      sectionWrapper.style.marginTop = "20px";
 
       const heading = document.createElement("h3");
       heading.textContent = cat.category.toUpperCase();
