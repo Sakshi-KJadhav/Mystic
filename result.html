@@ -213,6 +213,62 @@ align-content: center;}
     margin-top: 200px;
 }
 }
+
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 24px;
+  }
+
+  h3.category-heading {
+    font-size: 18px;
+  }
+
+  #outfit-results,
+  #styling-suggestions {
+    padding: 20px;
+  }
+
+  .outfit-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  #styling-suggestions table {
+    font-size: 14px;
+  }
+
+  #styling-suggestions th,
+  #styling-suggestions td {
+    padding: 10px;
+  }
+
+  #search-query {
+    width: 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 20px;
+  }
+
+  h3.category-heading {
+    font-size: 16px;
+  }
+
+  .outfit-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+
+  #styling-suggestions table {
+    font-size: 12px;
+  }
+
+  #styling-suggestions th,
+  #styling-suggestions td {
+    padding: 8px;
+  }
+}
 </style>
   <!-- Outfit results will be injected here by JS -->
   
