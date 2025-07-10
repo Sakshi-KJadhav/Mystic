@@ -250,24 +250,45 @@ align-content: center;}
 @media (max-width: 480px) {
   h2 {
     font-size: 20px;
+    position: relative;
+    text-align: justify;
   }
 
   h3.category-heading {
     font-size: 16px;
   }
-
+  #styling-suggestions th,
+  #styling-suggestions td {
+    padding: 10px;
+  }
   .outfit-grid {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 
+ 
+  
   #styling-suggestions table {
-    font-size: 12px;
-  }
+  font-size: 12px;
+  overflow-x: auto;
+  padding-right: 50px; /* 🛠 adds breathing space on mobile */
+}
+form#google-search-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 15px;
+}
+#search-query {
+  flex: 1;
+  min-width: 220px;
+}
+form#google-search-form button {
+  padding: 10px 16px;
+}
 
-  #styling-suggestions th,
-  #styling-suggestions td {
-    padding: 8px;
-  }
+
+  
 }
 </style>
   <!-- Outfit results will be injected here by JS -->
