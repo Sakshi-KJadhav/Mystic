@@ -13,10 +13,11 @@ async function getOutfits() {
     });
 
     const result = await res.json();
+container.appendChild(heading);
 
     const heading = document.createElement("h2");
     heading.textContent = `Outfit Suggestions`;
-
+    heading.style.textAlign = "center";
     
     const container = document.createElement("section");
     container.id = "outfit-results";
