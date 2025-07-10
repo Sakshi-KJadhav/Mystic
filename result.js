@@ -22,7 +22,7 @@ async function getOutfits() {
 
     const container = document.createElement("section");
     container.id = "outfit-results";
-    container.style.padding = "150px";
+   
     container.style.backgroundColor = "#fff";
 
     result.recommendations.forEach((cat) => {
