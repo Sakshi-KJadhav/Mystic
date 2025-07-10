@@ -18,9 +18,9 @@
     <nav>
         
       <ul>
-        <li><a href="index.html"></a>🏠</li>
-        <li><a href="index.html#about">𝓲</a></li>
-        <li><a href="index.html#contact">🤙🏽</a></li>
+        <li><a href="index.html"></a>Home</li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
       </ul>
     </nav>
     </div>
@@ -99,10 +99,12 @@ button{
 
     nav ul { display: flex;
       justify-content: flex-end;
-      align-items: center;
+     align-items: flex-end;
       list-style: none;
-     
+     top:2px;
+     position: relative;
       gap: 20px;
+      padding-right: 20px;
     }
 
     nav ul li {
@@ -216,6 +218,9 @@ align-content: center;}
  */
 
 @media (max-width: 768px) {
+  body{
+    max-width: max-content;
+  }
   h2 {
     font-size: 24px;
   }
@@ -251,7 +256,7 @@ align-content: center;}
   h2 {
     font-size: 20px;
     position: relative;
-    text-align: justify;
+   display: block;
   }
 
   h3.category-heading {
@@ -263,14 +268,25 @@ align-content: center;}
   }
   .outfit-grid {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    margin-left:50px;
   }
 
+ nav ul { display: flex;
+      justify-content: flex-end;
+     align-items: center;
+      list-style: none;
+   position: relative;
+   top:20px;
+      gap: 10px;
+      padding-right: 50px;
+      font-size: 1rem;
+    }
  
-  
-  #styling-suggestions table {
+  table {
   font-size: 12px;
   overflow-x: auto;
-  padding-right: 50px; /* 🛠 adds breathing space on mobile */
+ padding-right: 150px; /* 🛠 adds breathing space on mobile */
+
 }
 form#google-search-form {
   display: flex;
@@ -283,8 +299,8 @@ form#google-search-form {
   flex: 1;
   min-width: 220px;
 }
-form#google-search-form button {
-  padding: 10px 16px;
+button{
+  margin-right: 50px;
 }
 
 
