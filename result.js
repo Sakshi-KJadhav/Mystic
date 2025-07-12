@@ -2,6 +2,34 @@ console.log("✅ JS is working!");
 document.body.insertAdjacentHTML("beforeend", "<p style='color:red;'>JS loaded</p>");
 const data = JSON.parse(localStorage.getItem("formData"));
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  const preview = document.createElement("img");
+  preview.className = "preview-image";
+  document.body.appendChild(preview);
+
+  document.querySelectorAll("td").forEach(cell => {
+    const keyword = cell.textContent.trim().split(",")[0] + " outfit";
+    const imageURL = `https://in.pinterest.com/320/240/${encodeURIComponent(keyword)}`;
+
+    cell.addEventListener("mouseenter", (e) => {
+      preview.src = imageURL;
+      preview.style.top = (e.pageY + 10) + "px";
+      preview.style.left = (e.pageX + 10) + "px";
+      preview.style.display = "block";
+    });
+
+    cell.addEventListener("mousemove", (e) => {
+      preview.style.top = (e.pageY + 10) + "px";
+      preview.style.left = (e.pageX + 10) + "px";
+    });
+
+    cell.addEventListener("mouseleave", () => {
+      preview.style.display = "none";
+    });
+  });
+});
+
 async function getOutfits() {
   try {
     const res = await fetch("https://mystic-z9ep.onrender.com/api/recommendations", {
@@ -144,6 +172,8 @@ function generateStylingSuggestions(data) {
 
   // Table body
   const tbody = document.createElement("tbody");
+  // const keyword = item.imageQuery.split(",")[0].split(" ")[0]; // e.g. "Wrap"
+  // const imgSrc = `https://source.unsplash.com/160x160/?${encodeURIComponent(keyword + " outfit")}`;
 
   suggestions.forEach((item, index) => {
     const row = document.createElement("tr");
@@ -154,6 +184,7 @@ function generateStylingSuggestions(data) {
       <td style="padding: 12px; border: 1px solid #ddd;">${item.try}</td>
       <td style="padding: 12px; border: 1px solid #ddd;">${item.avoid}</td>
       <td style="padding: 12px; border: 1px solid #ddd;">${item.why}</td>
+
     `;
 
     tbody.appendChild(row);
@@ -165,7 +196,95 @@ function generateStylingSuggestions(data) {
   document.body.appendChild(stylingSection);
 
   stylingSection.scrollIntoView({ behavior: "smooth" });
+
+//   function renderStylingTable(suggestions) {
+//   const table = document.createElement("table");
+//   table.style.borderCollapse = "collapse";
+//   table.style.width = "100%";
+//   table.style.marginTop = "80px";
+//   table.style.fontFamily = "Arial, sans-serif";
+//   table.style.boxShadow = "0 0 12px rgba(0,0,0,0.1)";
+//   table.style.borderRadius = "10px";
+//   table.style.overflow = "hidden";
+
+//   // Table header
+//   table.innerHTML = `
+//     <thead style="background:#f2f2f2; font-weight:bold;">
+//       <tr>
+//         <th style="padding:12px; border:1px solid #ccc;">Element</th>
+//         <th style="padding:12px; border:1px solid #ccc;">Try</th>
+//         <th style="padding:12px; border:1px solid #ccc;">Avoid</th>
+//         <th style="padding:12px; border:1px solid #ccc;">Why</th>
+//         <th style="padding:12px; border:1px solid #ccc;">Image</th>
+//       </tr>
+//     </thead>
+//     <tbody>
+//       ${suggestions
+//         .map(
+//           (item) => `
+//         <tr>
+//           <td style="padding:10px; border:1px solid #eee;">${item.element}</td>
+//           <td style="padding:10px; border:1px solid #eee;">${item.try}</td>
+//           <td style="padding:10px; border:1px solid #eee;">${item.avoid}</td>
+//           <td style="padding:10px; border:1px solid #eee;">${item.why}</td>
+//           <td style="padding:10px; border:1px solid #eee;">
+//             <img src="https://source.unsplash.com/160x160/?${encodeURIComponent(
+//               item.imageQuery
+//             )}" alt="${item.imageQuery}" style="max-height:100px; border-radius:6px;" />
+//           </td>
+//           <td><img src="${imgSrc}" style="max-height:100px; border-radius:6px;" /></td>
+
+//         </tr>
+      // Create table
+// const table = document.createElement("table");
+// table.style.width = "100%";
+// table.style.borderCollapse = "collapse";
+// table.style.backgroundColor = "#fff";
+// table.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.05)";
+// table.style.borderRadius = "12px";
+// table.style.overflow = "hidden";
+// table.style.fontSize = "16px";
+
+// // Table header
+// table.innerHTML = `
+//   <thead style="background:#f2f2f2; font-weight:bold;">
+//     <tr>
+//       <th style="padding:12px; border:1px solid #ccc;">Element</th>
+//       <th style="padding:12px; border:1px solid #ccc;">Try</th>
+//       <th style="padding:12px; border:1px solid #ccc;">Avoid</th>
+//       <th style="padding:12px; border:1px solid #ccc;">Why</th>
+//       <th style="padding:12px; border:1px solid #ccc;">Image</th>
+//     </tr>
+//   </thead>
+//   <tbody>
+//     ${suggestions
+//       .map((item, index) => {
+//         const keyword = item.imageQuery.split(",")[0].split(" ")[0];
+//         const imgSrc = `https://source.unsplash.com/160x160/?${encodeURIComponent(keyword + " outfit")}`;
+//         return `
+//         <tr style="background-color: ${index % 2 === 0 ? "#ffffff" : "#f7fdf5"}">
+//           <td style="padding:10px; border:1px solid #eee;"><strong>${item.element}</strong></td>
+//           <td style="padding:10px; border:1px solid #eee;">${item.try}</td>
+//           <td style="padding:10px; border:1px solid #eee;">${item.avoid}</td>
+//           <td style="padding:10px; border:1px solid #eee;">${item.why}</td>
+//           <td style="padding:10px; border:1px solid #eee;"><img src="${imgSrc}" style="max-height:100px; border-radius:6px;" /></td>
+//         </tr>`;
+//       })
+//       .join("")}
+//   </tbody>
+// `;
+
+stylingSection.appendChild(table);
+document.body.appendChild(stylingSection);
+stylingSection.scrollIntoView({ behavior: "smooth" });
+
+       
+
+  // Add table to page
+  document.body.appendChild(table);
 }
+
+
 
 
 
@@ -173,345 +292,138 @@ function getStylingSuggestions(data) {
   const suggestions = [];
 
   const hipWaistRatio = data.hip / data.waist;
-const bustHipsDiff = Math.abs(data.bust - data.hip);
-const shoulderHipsDiff = Math.abs(data.shoulder - data.hip);
-const bustShoulderDiff = Math.abs(data.bust - data.shoulder);
+  const bustHipsDiff = Math.abs(data.bust - data.hip);
+  const shoulderHipsDiff = Math.abs(data.shoulder - data.hip);
+  const bustShoulderDiff = Math.abs(data.bust - data.shoulder);
 
-const hasShortTorso = data.torsoLength - data.legLength >= 3;
-const hasLongLegs = data.legLength - data.torsoLength >= 3;
-const hasBalancedProportion = Math.abs(data.torsoLength - data.legLength) <= 2;
+  const hasShortTorso = data.torsoLength - data.legLength >= 3;
+  const hasLongLegs = data.legLength - data.torsoLength >= 3;
+  const hasBalancedProportion = Math.abs(data.torsoLength - data.legLength) <= 2;
 
-const pearShaped = hipWaistRatio > 1.25 && data.hip > data.bust && data.hip > data.shoulder;
-const rectangleShaped =
-  Math.abs(data.shoulder - data.hip) < 4 &&
-  Math.abs(data.waist - data.hip) < 6;
-const hourglass =
-  bustHipsDiff < 5 && shoulderHipsDiff < 5 && hipWaistRatio < 1.25;
-const invertedTriangle = data.shoulder - data.hip > 5;
+  const pearShaped = hipWaistRatio > 1.25 && data.hip > data.bust && data.hip > data.shoulder;
+  const rectangleShaped = Math.abs(data.shoulder - data.hip) < 4 && Math.abs(data.waist - data.hip) < 6;
+  const hourglass = bustHipsDiff < 5 && shoulderHipsDiff < 5 && hipWaistRatio < 1.25;
+  const invertedTriangle = data.shoulder - data.hip > 5;
+  const appleShaped = data.bust > data.hip && hipWaistRatio < 1.1 && data.waist > data.hip * 0.85;
 
-  // 1. Neckline
+  const add = (element, tryThis, avoid, why) => {
+  const imageQuery = tryThis.split(",")[0] + " outfit"; // V-neck -> V-neck outfit
+  suggestions.push({ element, try: tryThis, avoid, why, imageQuery });
+};
+
+
+  // --- NECKLINE ---
   if (invertedTriangle || bustShoulderDiff > 5) {
-    suggestions.push({
-      element: "Neckline",
-      try: "V-neck, deep scoop, narrow plunges",
-      avoid: "Boat neck, wide crewneck",
-      why: "Creates vertical lines, reducing upper body width"
-    });
-  }
- 
-
-  
-  else if (pearShaped || rectangleShaped) {
-    suggestions.push({
-      element: "Neckline",
-      try: "Boat neck, square neck, off-shoulder",
-      avoid: "Deep plunges, tight crews",
-      why: "Adds width to the top and balances hip-heavy shapes"
-    });
+    add("Neckline", "V-neck, deep scoop, narrow plunge", "Boat neck, high crewneck", "Minimizes broad shoulders and balances upper body");
+  } else if (pearShaped || rectangleShaped) {
+    add("Neckline", "Square, boat, wide scoop", "Tight crewnecks, deep plunges", "Adds width to upper body and balances hips");
   } else {
-    suggestions.push({
-      element: "Neckline",
-      try: "Scoop, jewel, sweetheart",
-      avoid: "Super high necks",
-      why: "Flatters balanced frames and opens up neckline"
-    });
+    add("Neckline", "Scoop neck, open necklines", "Overly high necks", "Keeps proportions balanced");
   }
 
-  // 2. Sleeves
+  // --- SLEEVES ---
   if (pearShaped) {
-    suggestions.push({
-      element: "Sleeves",
-      try: "Cap sleeves, flutter sleeves",
-      avoid: "Sleeveless or tight sleeves",
-      why: "Adds volume to shoulders and balances hips"
-    });
+    add("Sleeves", "Puff, flutter, cap sleeves", "Sleeveless, tight short sleeves", "Enhances shoulder width to balance hips");
   } else if (invertedTriangle) {
-    suggestions.push({
-      element: "Sleeves",
-      try: "Slim sleeves, raglan, dolman",
-      avoid: "Structured or puffed sleeves",
-      why: "Minimizes upper body width"
-    });
+    add("Sleeves", "Slim, raglan, dolman", "Puffed or structured shoulders", "Softens the shoulder line");
   } else {
-    suggestions.push({
-      element: "Sleeves",
-      try: "3/4 sleeves, rolled cuffs",
-      avoid: "Overly long or bulky",
-      why: "Enhances arm shape without overpowering the frame"
-    });
+    add("Sleeves", "Fitted sleeves", "Oversized sleeves", "Maintains natural silhouette");
   }
 
-  // 3. Top Length
+  // --- TOP LENGTH ---
   if (hasShortTorso) {
-  suggestions.push({
-    element: "Top Length",
-    try: "Waist-length or just below",
-    avoid: "High cropped tops or long tunics",
-    why: "Keeps torso balanced and avoids shortening"
-  });
-} else if (hasLongLegs) {
-  suggestions.push({
-    element: "Top Length",
-    try: "Hip-length or tunic-style",
-    avoid: "Overly short tops",
-    why: "Balances vertical proportions"
-  });
-} else {
-  suggestions.push({
-    element: "Top Length",
-    try: "Waist to hip-length tops",
-    avoid: "Very long or very short tops",
-    why: "Keeps balanced look for equal leg-torso proportions"
-  });
-}
-
-
-  // 4. Tuck/Untuck
-  if (hasShortTorso) {
-  suggestions.push({
-    element: "Tuck/Untuck",
-    try: "Half-tuck or untucked",
-    avoid: "Full tuck into high-rise bottoms",
-    why: "Avoids visually shortening torso"
-  });
-} else if (hasLongLegs) {
-  suggestions.push({
-    element: "Tuck/Untuck",
-    try: "Full tuck or long top with mid-rise",
-    avoid: "Short untucked tops",
-    why: "Adds visual balance to a short torso"
-  });
-} else {
-  suggestions.push({
-    element: "Tuck/Untuck",
-    try: "Neat full tuck or front-tuck",
-    avoid: "Bulky untucked tops",
-    why: "Defines waist while keeping balanced proportions"
-  });
-}
-
-
-  // 5. Jeans Style
-  if (pearShaped) {
-    suggestions.push({
-      element: "Jeans Style",
-      try: "Wide-leg, bootcut, relaxed straight",
-      avoid: "Tight skinny jeans with tight tops",
-      why: "Balances hips and flatters legs"
-    });
-  } else if (invertedTriangle) {
-    suggestions.push({
-      element: "Jeans Style",
-      try: "Flared, boyfriend, palazzo",
-      avoid: "Slim or cigarette cuts",
-      why: "Creates volume on the lower half"
-    });
-  } else {
-    suggestions.push({
-      element: "Jeans Style",
-      try: "Straight or tapered",
-      avoid: "Overly loose or overly skinny",
-      why: "Keeps proportions sleek and flattering"
-    });
-  }
-
-  // 6. Jeans Rise
-  if (hasShortTorso) {
-  suggestions.push({
-    element: "Jeans Rise",
-    try: "Mid-rise",
-    avoid: "Ultra high-rise",
-    why: "Avoids crowding the torso"
-  });
-} else if (hasLongLegs) {
-  suggestions.push({
-    element: "Jeans Rise",
-    try: "High-rise",
-    avoid: "Low-rise",
-    why: "Defines waist and elongates torso"
-  });
-} else {
-  suggestions.push({
-    element: "Jeans Rise",
-    try: "Mid to high-rise",
-    avoid: "Super low-rise",
-    why: "Maintains balanced silhouette"
-  });
-}
-
-
-  // 7. Dress Type
-  if (hourglass) {
-    suggestions.push({
-      element: "Dress Type",
-      try: "Wrap, belted, fit & flare",
-      avoid: "Boxy or shapeless",
-      why: "Defines waist and curves"
-    });
-  } else if (pearShaped) {
-    suggestions.push({
-      element: "Dress Type",
-      try: "Empire waist, A-line, off-shoulder",
-      avoid: "Straight sheath",
-      why: "Draws attention to upper body"
-    });
-  } else {
-    suggestions.push({
-      element: "Dress Type",
-      try: "Shift, straight cut, slight flare",
-      avoid: "Overly tight or belted",
-      why: "Soft structure without forcing curves"
-    });
-  }
-
-  // 8. Skirt Shape
-  if (pearShaped || hourglass) {
-    suggestions.push({
-      element: "Skirt Shape",
-      try: "A-line, bias cut, tulip",
-      avoid: "Tight pencil unless balanced with bold top",
-      why: "Glides over hips and adds movement"
-    });
-  } else {
-    suggestions.push({
-      element: "Skirt Shape",
-      try: "Pencil, pleated, slight flare",
-      avoid: "Heavy gathers",
-      why: "Adds gentle curve and form"
-    });
-  }
-
-  // 9. Skirt Length
-  if (hasLongLegs) {
-  suggestions.push({
-    element: "Skirt Length",
-    try: "Above-the-knee, midi",
-    avoid: "Floor-length that hides legs",
-    why: "Shows off long legs"
-  });
-} else if (hasShortTorso) {
-  suggestions.push({
-    element: "Skirt Length",
-    try: "Just above the knee",
-    avoid: "Very long skirts",
-    why: "Adds visual length to lower body"
-  });
-} else {
-  suggestions.push({
-    element: "Skirt Length",
-    try: "Knee to midi length",
-    avoid: "Too short or floor-length",
-    why: "Maintains visual proportion"
-  });
-}
-
-
-  // 10. Jackets
-  if (hasShortTorso) {
-    suggestions.push({
-      element: "Jackets",
-      try: "Hip-length or slightly below",
-      avoid: "Cropped or oversized long coats",
-      why: "Lengthens upper body visually"
-    });
+    add("Top Length", "Waist-length or just below", "High cropped tops or long tunics", "Keeps torso balanced and avoids shortening");
   } else if (hasLongLegs) {
-    suggestions.push({
-      element: "Jackets",
-      try: "Tunic-length, longline",
-      avoid: "Boxy cropped jackets",
-      why: "Balances lower-body length"
-    });
+    add("Top Length", "Hip-length or tunic-style", "Overly short tops", "Balances vertical proportion");
   } else {
-    suggestions.push({
-      element: "Jackets",
-      try: "Cropped or hip-length",
-      avoid: "Extreme lengths",
-      why: "Keeps proportions clean and balanced"
-    });
+    add("Top Length", "Mid-length tops", "Extra long tunics", "Keeps proportion harmonious");
   }
 
-  // 11. Footwear
-  if (hasLongLegs) {
-  suggestions.push({
-    element: "Footwear",
-    try: "Ankle strap heels, pointed flats",
-    avoid: "Heavy boots that cut the ankle",
-    why: "Flatters long legs and adds structure"
-  });
-} else if (hasShortTorso) {
-  suggestions.push({
-    element: "Footwear",
-    try: "Low vamp shoes, nude heels",
-    avoid: "Chunky ankle boots",
-    why: "Elongates leg line and balances proportions"
-  });
-} else {
-  suggestions.push({
-    element: "Footwear",
-    try: "Classic loafers, clean sandals, neutral heels",
-    avoid: "Overly bulky shoes",
-    why: "Keeps the line smooth and proportional"
-  });
-}
-
-
-  // 12. Accessories
+  // --- TUCK/UNTUCK ---
   if (hasShortTorso) {
-    suggestions.push({
-      element: "Accessories",
-      try: "Long necklaces, earrings",
-      avoid: "Thick belts at waist",
-      why: "Draws eye vertically and opens space"
-    });
+    add("Tuck/Untuck", "Half-tuck at mid-rise", "Full tuck into high-rise", "Avoids shortening torso");
   } else {
-    suggestions.push({
-      element: "Accessories",
-      try: "Waist belts, chokers, bold earrings",
-      avoid: "Long layers that crowd lower body",
-      why: "Defines natural waist and draws eye upward"
-    });
+    add("Tuck/Untuck", "Tuck into high-waist", "Untucked long tops", "Accentuates waistline and adds shape");
   }
 
-  // 13. Color Blocking
-  if (pearShaped || rectangleShaped) {
-  suggestions.push({
-    element: "Color Blocking",
-    try: "Light or bright tops with dark bottoms",
-    avoid: "Loud bottoms with plain tops",
-    why: "Pulls attention upward and balances lower body"
-  });
-} else if (invertedTriangle) {
-  suggestions.push({
-    element: "Color Blocking",
-    try: "Dark or solid tops with lighter bottoms",
-    avoid: "Light tops with dark bottoms",
-    why: "Balances broader shoulders"
-  });
-} else {
-  suggestions.push({
-    element: "Color Blocking",
-    try: "Monochrome or balanced color contrast",
-    avoid: "Harsh color cuts at waist",
-    why: "Keeps clean and proportional visual flow"
-  });
-}
-
-
-  // 14. Prints & Lines
+  // --- JEANS STYLE ---
   if (pearShaped) {
-    suggestions.push({
-      element: "Prints & Lines",
-      try: "Stripes, prints or ruffles on top",
-      avoid: "Loud prints on bottom",
-      why: "Adds width to upper body"
-    });
+    add("Jeans Style", "Straight, wide-leg, bootcut", "Tight skinny jeans with tight tops", "Balances wider hips and flatters legs");
   } else if (invertedTriangle) {
-    suggestions.push({
-      element: "Prints & Lines",
-      try: "Patterns on pants, skirts",
-      avoid: "Bold shoulder detailing",
-      why: "Draws eye downward"
-    });
+    add("Jeans Style", "Flared or wide-leg", "Skinny jeans with shoulder pads", "Adds volume to lower half");
+  } else {
+    add("Jeans Style", "Slim-straight or tapered", "Baggy jeans", "Keeps silhouette neat");
+  }
+
+  // --- JEANS RISE ---
+  if (hasShortTorso) {
+    add("Jeans Rise", "Mid-rise", "Ultra high-rise", "Supports waist without crowding torso");
+  } else if (hasLongLegs) {
+    add("Jeans Rise", "High-rise", "Low-rise", "Elongates torso and defines waist");
+  } else if (hasBalancedProportion) {
+    add("Jeans Rise", "Mid to high rise", "Ultra low rise", "Keeps proportions balanced");
+  }
+
+  // --- SKIRT SHAPE ---
+  if (pearShaped || hourglass) {
+    add("Skirt Shape", "A-line, tulip, bias cut", "Tight pencil skirts", "Glides over hips and flatters curves");
+  } else {
+    add("Skirt Shape", "Pencil, box pleat", "Heavy gathers", "Adds shape where needed");
+  }
+
+  // --- SKIRT LENGTH ---
+  if (hasLongLegs) {
+    add("Skirt Length", "Above-the-knee, midi", "Floor-length", "Shows off leg length");
+  } else {
+    add("Skirt Length", "Just above the knee", "Micro mini", "Keeps vertical proportion moderate");
+  }
+
+  // --- DRESS TYPE ---
+  if (hourglass) {
+    add("Dress Type", "Wrap, fit & flare, belted styles", "Boxy shapes", "Emphasizes natural curves");
+  } else if (pearShaped) {
+    add("Dress Type", "A-line, empire waist, off-shoulder", "Straight or shapeless cuts", "Skims hips and highlights waist/shoulders");
+  } else if (appleShaped) {
+    add("Dress Type", "Empire waist, flowy or trapeze", "Tight bodycon", "Skims tummy and adds vertical flow");
+  } else {
+    add("Dress Type", "Belted, shift or straight cuts", "Overly oversized styles", "Adds structure to the frame");
+  }
+
+  // --- JACKETS ---
+  if (hasShortTorso) {
+    add("Jackets", "Cropped or waist-fitted", "Long oversized coats", "Keeps torso from looking shorter");
+  } else {
+    add("Jackets", "Mid-thigh open jackets", "Very cropped boleros", "Adds vertical lines and elongates");
+  }
+
+  // --- FOOTWEAR ---
+  if (hasLongLegs) {
+    add("Footwear", "Ankle strap heels, pointed flats", "Chunky ankle boots", "Enhances leg line");
+  } else {
+    add("Footwear", "Low-vamp shoes, pointed toes", "High-top sneakers", "Elongates the legs");
+  }
+
+  // --- ACCESSORIES ---
+  if (hasShortTorso) {
+    add("Accessories", "Long pendants, layered necklaces", "Wide waist belts", "Draws attention upward and adds length");
+  } else {
+    add("Accessories", "Waist belts, short chains", "Heavy neck chokers", "Emphasizes waistline");
+  }
+
+  // --- COLOR BLOCKING ---
+  if (pearShaped || rectangleShaped) {
+    add("Color Blocking", "Bright/light tops, dark bottoms", "Bright bottoms with plain tops", "Pulls focus upward and balances shape");
+  } else {
+    add("Color Blocking", "Single-tone or balanced contrast", "Half-split top/bottom contrast", "Maintains flow and balance");
+  }
+
+  // --- PRINTS & LINES ---
+  if (pearShaped) {
+    add("Prints & Lines", "Horizontal stripes or prints on top", "Loud prints on bottoms", "Adds visual weight to upper body");
+  } else if (invertedTriangle) {
+    add("Prints & Lines", "Subtle prints on top, bold bottom", "Bold shoulders + prints", "Reduces attention on broad shoulders");
+  } else {
+    add("Prints & Lines", "Balanced prints, vertical lines", "Wide horizontal on midsection", "Keeps body aligned and proportioned");
   }
 
   return suggestions;
@@ -520,7 +432,10 @@ const invertedTriangle = data.shoulder - data.hip > 5;
 
 
 
+
+
 generateStylingSuggestions(data);
+
 
 
 
