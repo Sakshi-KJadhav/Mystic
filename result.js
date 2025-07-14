@@ -72,6 +72,7 @@ async function getOutfits() {
 
       cat.outfits.forEach((outfit) => {
   const card = document.createElement("div");
+  card.style.height = "150px";
   card.style.border = "1px solid #ccc";
   card.style.borderRadius = "8px";
   card.style.overflow = "hidden";
