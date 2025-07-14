@@ -43,8 +43,8 @@ async function getOutfits() {
     const result = await res.json();
 
 
-    const heading = document.createElement("h2");
-    heading.textContent = `👗Outfit Suggestions`;
+ const heading = document.createElement("h2");
+     heading.textContent = `👗Outfit Suggestions`;
     heading.style.textAlign = "center";
     document.body.appendChild(heading);
 
@@ -157,7 +157,7 @@ function generateStylingSuggestions(data) {
   table.style.borderRadius = "12px";
   table.style.overflow = "hidden";
   table.style.fontSize = "16px";
-
+  table.style.padding = " 50px";
   // Table header
   const thead = document.createElement("thead");
   thead.innerHTML = `
