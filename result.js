@@ -46,6 +46,8 @@ async function getOutfits() {
  const heading = document.createElement("h2");
      heading.textContent = `👗Outfit Suggestions`;
     heading.style.textAlign = "center";
+      heading.style.fontSize = "28px";
+
     document.body.appendChild(heading);
 
     const container = document.createElement("section");
