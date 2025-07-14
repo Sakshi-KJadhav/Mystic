@@ -1,5 +1,5 @@
 console.log("✅ JS is working!");
-document.body.insertAdjacentHTML("beforeend", "<p style='color:red;'>JS loaded</p>");
+// document.body.insertAdjacentHTML("beforeend", "<p style='color:red;'>JS loaded</p>");
 const data = JSON.parse(localStorage.getItem("formData"));
 
 
@@ -129,13 +129,13 @@ document.getElementById('google-search-form').addEventListener('submit', functio
 function generateStylingSuggestions(data) {
   const stylingSection = document.createElement("section");
   stylingSection.id = "styling-suggestions";
-  stylingSection.style.padding = "100px 50px";
+   stylingSection.style.padding = "20px";
   stylingSection.style.backgroundColor = "#f4f9f8";
 
   const heading = document.createElement("h2");
   heading.textContent = "🧵 Styling Suggestions for You";
   heading.style.fontSize = "28px";
-  heading.style.paddingTop = "50px";
+  heading.style.paddingTop = "250px";
   heading.style.textAlign = "center";
   stylingSection.appendChild(heading);
 
@@ -172,8 +172,7 @@ function generateStylingSuggestions(data) {
 
   // Table body
   const tbody = document.createElement("tbody");
-  // const keyword = item.imageQuery.split(",")[0].split(" ")[0]; // e.g. "Wrap"
-  // const imgSrc = `https://source.unsplash.com/160x160/?${encodeURIComponent(keyword + " outfit")}`;
+
 
   suggestions.forEach((item, index) => {
     const row = document.createElement("tr");
@@ -274,9 +273,7 @@ function generateStylingSuggestions(data) {
 //   </tbody>
 // `;
 
-stylingSection.appendChild(table);
-document.body.appendChild(stylingSection);
-stylingSection.scrollIntoView({ behavior: "smooth" });
+
 
        
 
@@ -287,29 +284,47 @@ stylingSection.scrollIntoView({ behavior: "smooth" });
 
 
 
-
 function getStylingSuggestions(data) {
   const suggestions = [];
 
-  const hipWaistRatio = data.hip / data.waist;
-  const bustHipsDiff = Math.abs(data.bust - data.hip);
-  const shoulderHipsDiff = Math.abs(data.shoulder - data.hip);
-  const bustShoulderDiff = Math.abs(data.bust - data.shoulder);
+  const hipWaistRatio = data.hips / data.waist;
+const bustHipsDiff = Math.abs(data.bust - data.hips);
+const shoulderHipsDiff = Math.abs(data.shoulders - data.hips);
+const bustShoulderDiff = Math.abs(data.bust - data.shoulders);
 
-  const hasShortTorso = data.torsoLength - data.legLength >= 3;
-  const hasLongLegs = data.legLength - data.torsoLength >= 3;
-  const hasBalancedProportion = Math.abs(data.torsoLength - data.legLength) <= 2;
+const hasShortTorso = data['torso-length'] - data['leg-length'] >= 3;
+const hasLongLegs = data['leg-length'] - data['torso-length'] >= 3;
+const hasBalancedProportion = Math.abs(data['torso-length'] - data['leg-length']) <= 2;
 
-  const pearShaped = hipWaistRatio > 1.25 && data.hip > data.bust && data.hip > data.shoulder;
-  const rectangleShaped = Math.abs(data.shoulder - data.hip) < 4 && Math.abs(data.waist - data.hip) < 6;
-  const hourglass = bustHipsDiff < 5 && shoulderHipsDiff < 5 && hipWaistRatio < 1.25;
-  const invertedTriangle = data.shoulder - data.hip > 5;
-  const appleShaped = data.bust > data.hip && hipWaistRatio < 1.1 && data.waist > data.hip * 0.85;
+const pearShaped =
+  hipWaistRatio > 1.15 &&
+  data.hips > data.bust &&
+  data.hips > data.shoulders;
+
+const rectangleShaped =
+  Math.abs(data.shoulders - data.hips) <= 3 &&
+  Math.abs(data.waist - data.hips) <= 6;
+
+const hourglass =
+  bustHipsDiff <= 3 &&
+  shoulderHipsDiff <= 3 &&
+  Math.abs(data.waist - data.hips) > 7;
+
+const invertedTriangle =
+  data.shoulders - data.hips >= 5 &&
+  data.shoulders > data.bust;
+
+const appleShaped =
+  data.bust >= data.hips &&
+  data.waist >= data.bust * 0.75 &&
+  data.waist >= data.hips * 0.75;
 
   const add = (element, tryThis, avoid, why) => {
     const imageQuery = tryThis.split(",")[0] + " outfit";
     suggestions.push({ element, try: tryThis, avoid, why, imageQuery });
   };
+
+  
 
   // --- NECKLINE ---
   if (invertedTriangle || bustShoulderDiff > 5) {
@@ -331,7 +346,7 @@ function getStylingSuggestions(data) {
     add("Sleeves", "Bell, puff, layered sleeves", "Straight sleeves", "Adds curves and dimension");
   } else if (hourglass) {
     add("Sleeves", "Fitted sleeves, 3/4 sleeves", "Boxy or bulky sleeves", "Accentuates curves without hiding shape");
-  } else if (appleShaped) {
+  } else  {
     add("Sleeves", "Flowy, elbow-length, dolman sleeves", "Tight short sleeves", "Camouflages upper arm and adds ease");
   }
 
@@ -340,7 +355,7 @@ function getStylingSuggestions(data) {
     add("Top Length", "Waist-length or just below", "High cropped tops or very long tunics", "Keeps torso looking balanced");
   } else if (hasLongLegs) {
     add("Top Length", "Hip-length or tunic-style", "Super short tops", "Lengthens the torso visually");
-  } else if (hasBalancedProportion) {
+  } else  {
     add("Top Length", "Mid-length tops", "Overly long tops", "Keeps body proportions harmonious");
   }
 
@@ -349,7 +364,7 @@ if (hasShortTorso) {
   add("Tuck/Untuck", "Half-tuck or front tuck", "Full tuck with high waist", "Prevents upper body from looking squashed");
 } else if (hasLongLegs) {
   add("Tuck/Untuck", "Full tuck or belted tops", "Untucked long tops", "Defines waist and balances longer legs");
-} else {
+} else  {
   add("Tuck/Untuck", "Tuck into mid-rise", "Shapeless untucked tops", "Keeps torso and legs in harmony");
 }
 
@@ -363,7 +378,7 @@ if (hasShortTorso) {
     add("Jeans Style", "High-waist skinny, flared", "Loose fit", "Follows natural curves and defines waist");
   } else if (invertedTriangle) {
     add("Jeans Style", "Flared, bootcut, wide-leg", "Skinny with padded shoulders", "Adds volume to lower half");
-  } else if (appleShaped) {
+  } else  {
     add("Jeans Style", "Straight-leg, mid-rise, tummy control", "Low-rise skinnies", "Flattens tummy and balances shape");
   }
 
@@ -372,7 +387,7 @@ if (hasShortTorso) {
     add("Jeans Rise", "Mid-rise", "Ultra high-rise", "Avoids cutting off your torso visually");
   } else if (hasLongLegs) {
     add("Jeans Rise", "High-rise", "Low-rise", "Balances vertical proportion and adds shape");
-  } else if (hasBalancedProportion) {
+  } else  {
     add("Jeans Rise", "Mid to high rise", "Low or ultra-high rise extremes", "Keeps everything proportional");
   }
 
@@ -392,7 +407,7 @@ if (hasLongLegs) {
   add("Skirt Length", "Midi, mini, above knee", "Floor-length", "Highlights long legs");
 } else if (hasShortTorso) {
   add("Skirt Length", "Just above knee or midi", "Long skirts with long tops", "Avoids visually shrinking upper body");
-} else {
+} else  {
   add("Skirt Length", "Just above knee or classic midi", "Too short or too long", "Maintains overall balance");
 }
 
@@ -405,7 +420,7 @@ if (hasLongLegs) {
     add("Dress Type", "Empire waist, trapeze, shift", "Tight bodycon", "Skims midsection and flatters bust");
   } else if (rectangleShaped) {
     add("Dress Type", "Peplum, tiered, belted", "Straight tube dresses", "Creates curves with volume or belts");
-  } else if (invertedTriangle) {
+  } else {
     add("Dress Type", "Flared skirt, off-shoulder, empire", "Strappy bodycon", "Balances wide shoulders with volume below");
   }
 
@@ -414,7 +429,7 @@ if (hasShortTorso) {
   add("Jackets", "Cropped, waist-fitted", "Long oversized jackets", "Keeps upper body from looking shorter");
 } else if (hasLongLegs) {
   add("Jackets", "Hip to mid-thigh length", "Very short cropped jackets", "Balances vertical proportion");
-} else {
+} else  {
   add("Jackets", "Hip-length, open style", "Heavy midsection coats", "Keeps silhouette flowing");
 }
 
@@ -423,7 +438,7 @@ if (hasLongLegs) {
   add("Footwear", "Ankle straps, flats, kitten heels", "Chunky ankle boots", "Flatters the leg line");
 } else if (hasShortTorso) {
   add("Footwear", "Low vamp pointed flats", "High-top sneakers or bulky soles", "Elongates leg and balances torso");
-} else {
+} else  {
   add("Footwear", "Neutral-tone shoes, slim heels", "Overly bulky shoes", "Keeps body streamlined");
 }
 
@@ -433,7 +448,7 @@ if (hasShortTorso) {
   add("Accessories", "Long chains, slim earrings", "Chunky wide belts", "Draws eye vertically, elongating torso");
 } else if (hasLongLegs) {
   add("Accessories", "Waist belts, short chains", "Long chunky necklaces", "Draws attention to balanced center");
-} else {
+} else  {
   add("Accessories", "Medium-length necklaces, medium belts", "Extreme size accessories", "Adds polish without cutting lines");
 }
 
@@ -461,6 +476,7 @@ if (hasShortTorso) {
 
   return suggestions;
 }
+
 
 
 
