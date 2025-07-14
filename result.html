@@ -186,11 +186,11 @@ button{
 
 }
 .mimage img{
-  
+  border-radius: 20px;
   height: 800px;
 }
-.mimage p{
-  align-self: center;
+
+.lines{ align-self: center;
  position: relative;
  
  width: 50%;
@@ -202,6 +202,8 @@ button{
  
   
   opacity: 1;
+  display: flex;
+  flex-direction: column;
 }
 .back-btn {
   text-decoration:none ;
@@ -356,7 +358,10 @@ button{
 
 <div class="mimage">
 <img src ="/mimg.jpg">
+<div class="lines">
 <p>"The dress must follow the body of a woman, not the body following the shape of the dress."</p>
+<p style="font-size: 20px;">-Hubert de Givenchy</p>
+</div>
 </div>
 </body>
 
