@@ -3,32 +3,17 @@ console.log("✅ JS is working!");
 const data = JSON.parse(localStorage.getItem("formData"));
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const preview = document.createElement("img");
-  preview.className = "preview-image";
-  document.body.appendChild(preview);
-
-  document.querySelectorAll("td").forEach(cell => {
+// document.addEventListener("DOMContentLoaded", () => {
+//   // Create a preview image element
+  
+// });
+   document.querySelectorAll("td").forEach(cell => {
     const keyword = cell.textContent.trim().split(",")[0] + " outfit";
-    const imageURL = `https://in.pinterest.com/320/240/${encodeURIComponent(keyword)}`;
 
-    cell.addEventListener("mouseenter", (e) => {
-      preview.src = imageURL;
-      preview.style.top = (e.pageY + 10) + "px";
-      preview.style.left = (e.pageX + 10) + "px";
-      preview.style.display = "block";
-    });
+   });
 
-    cell.addEventListener("mousemove", (e) => {
-      preview.style.top = (e.pageY + 10) + "px";
-      preview.style.left = (e.pageX + 10) + "px";
-    });
-
-    cell.addEventListener("mouseleave", () => {
-      preview.style.display = "none";
-    });
-  });
-});
+  
+;
 
 async function getOutfits() {
   try {
@@ -130,164 +115,12 @@ document.getElementById('google-search-form').addEventListener('submit', functio
 
 // Function to generate styling suggestions based on body data
 function generateStylingSuggestions(data) {
-  const stylingSection = document.createElement("section");
-  stylingSection.id = "styling-suggestions";
-   stylingSection.style.padding = "20px";
-  stylingSection.style.backgroundColor = "#f4f9f8";
-
-  const heading = document.createElement("h2");
-  heading.textContent = "🧵 Styling Suggestions for You";
-  heading.style.fontSize = "28px";
-  heading.style.paddingTop = "250px";
-  heading.style.textAlign = "center";
-  stylingSection.appendChild(heading);
-
-  const suggestions = getStylingSuggestions(data);
-
-  if (!suggestions.length) {
-    const noneText = document.createElement("p");
-    noneText.textContent = "No styling suggestions available.";
-    stylingSection.appendChild(noneText);
-    return;
-  }
-
-  // Create table
-  const table = document.createElement("table");
-  table.style.width = "100%";
-  table.style.borderCollapse = "collapse";
-  table.style.backgroundColor = "#fff";
-  table.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.05)";
-  table.style.borderRadius = "12px";
-  table.style.overflow = "hidden";
-  table.style.fontSize = "16px";
-  table.style.padding = " 50px";
-  // Table header
-  const thead = document.createElement("thead");
-  thead.innerHTML = `
-    <tr style="background-color: #d9ead3; color: #333;">
-      <th style="padding: 15px; border: 1px solid #ccc;">Element</th>
-      <th style="padding: 15px; border: 1px solid #ccc;">Try</th>
-      <th style="padding: 15px; border: 1px solid #ccc;">Avoid</th>
-      <th style="padding: 15px; border: 1px solid #ccc;">Why It Works</th>
-    </tr>
-  `;
-  table.appendChild(thead);
-
-  // Table body
-  const tbody = document.createElement("tbody");
-
-
-  suggestions.forEach((item, index) => {
-    const row = document.createElement("tr");
-    row.style.backgroundColor = index % 2 === 0 ? "#ffffff" : "#f7fdf5";
-
-    row.innerHTML = `
-      <td style="padding: 12px; border: 1px solid #ddd;"><strong>${item.element}</strong></td>
-      <td style="padding: 12px; border: 1px solid #ddd;">${item.try}</td>
-      <td style="padding: 12px; border: 1px solid #ddd;">${item.avoid}</td>
-      <td style="padding: 12px; border: 1px solid #ddd;">${item.why}</td>
-
-    `;
-
-    tbody.appendChild(row);
-  });
-
-  table.appendChild(tbody);
-  stylingSection.appendChild(table);
-
-  document.body.appendChild(stylingSection);
-
-  stylingSection.scrollIntoView({ behavior: "smooth" });
-
-//   function renderStylingTable(suggestions) {
-//   const table = document.createElement("table");
-//   table.style.borderCollapse = "collapse";
-//   table.style.width = "100%";
-//   table.style.marginTop = "80px";
-//   table.style.fontFamily = "Arial, sans-serif";
-//   table.style.boxShadow = "0 0 12px rgba(0,0,0,0.1)";
-//   table.style.borderRadius = "10px";
-//   table.style.overflow = "hidden";
-
-//   // Table header
-//   table.innerHTML = `
-//     <thead style="background:#f2f2f2; font-weight:bold;">
-//       <tr>
-//         <th style="padding:12px; border:1px solid #ccc;">Element</th>
-//         <th style="padding:12px; border:1px solid #ccc;">Try</th>
-//         <th style="padding:12px; border:1px solid #ccc;">Avoid</th>
-//         <th style="padding:12px; border:1px solid #ccc;">Why</th>
-//         <th style="padding:12px; border:1px solid #ccc;">Image</th>
-//       </tr>
-//     </thead>
-//     <tbody>
-//       ${suggestions
-//         .map(
-//           (item) => `
-//         <tr>
-//           <td style="padding:10px; border:1px solid #eee;">${item.element}</td>
-//           <td style="padding:10px; border:1px solid #eee;">${item.try}</td>
-//           <td style="padding:10px; border:1px solid #eee;">${item.avoid}</td>
-//           <td style="padding:10px; border:1px solid #eee;">${item.why}</td>
-//           <td style="padding:10px; border:1px solid #eee;">
-//             <img src="https://source.unsplash.com/160x160/?${encodeURIComponent(
-//               item.imageQuery
-//             )}" alt="${item.imageQuery}" style="max-height:100px; border-radius:6px;" />
-//           </td>
-//           <td><img src="${imgSrc}" style="max-height:100px; border-radius:6px;" /></td>
-
-//         </tr>
-      // Create table
-// const table = document.createElement("table");
-// table.style.width = "100%";
-// table.style.borderCollapse = "collapse";
-// table.style.backgroundColor = "#fff";
-// table.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.05)";
-// table.style.borderRadius = "12px";
-// table.style.overflow = "hidden";
-// table.style.fontSize = "16px";
-
-// // Table header
-// table.innerHTML = `
-//   <thead style="background:#f2f2f2; font-weight:bold;">
-//     <tr>
-//       <th style="padding:12px; border:1px solid #ccc;">Element</th>
-//       <th style="padding:12px; border:1px solid #ccc;">Try</th>
-//       <th style="padding:12px; border:1px solid #ccc;">Avoid</th>
-//       <th style="padding:12px; border:1px solid #ccc;">Why</th>
-//       <th style="padding:12px; border:1px solid #ccc;">Image</th>
-//     </tr>
-//   </thead>
-//   <tbody>
-//     ${suggestions
-//       .map((item, index) => {
-//         const keyword = item.imageQuery.split(",")[0].split(" ")[0];
-//         const imgSrc = `https://source.unsplash.com/160x160/?${encodeURIComponent(keyword + " outfit")}`;
-//         return `
-//         <tr style="background-color: ${index % 2 === 0 ? "#ffffff" : "#f7fdf5"}">
-//           <td style="padding:10px; border:1px solid #eee;"><strong>${item.element}</strong></td>
-//           <td style="padding:10px; border:1px solid #eee;">${item.try}</td>
-//           <td style="padding:10px; border:1px solid #eee;">${item.avoid}</td>
-//           <td style="padding:10px; border:1px solid #eee;">${item.why}</td>
-//           <td style="padding:10px; border:1px solid #eee;"><img src="${imgSrc}" style="max-height:100px; border-radius:6px;" /></td>
-//         </tr>`;
-//       })
-//       .join("")}
-//   </tbody>
-// `;
-
-
-
-       
-
-  // Add table to page
-  document.body.appendChild(table);
-}
+  
 
 
 
 
-function getStylingSuggestions(data) {
+
   const suggestions = [];
 
   const hipWaistRatio = data.hips / data.waist;
@@ -477,8 +310,170 @@ if (hasShortTorso) {
     add("Prints & Lines", "Subtle all-over patterns", "Midsection-focused prints", "Keeps figure clean and balanced");
   }
 
-  return suggestions;
-}
+
+
+
+  const stylingSection = document.createElement("section");
+  stylingSection.id = "styling-suggestions";
+   stylingSection.style.padding = "20px";
+  stylingSection.style.backgroundColor = "#f4f9f8";
+
+  const heading = document.createElement("h2");
+  heading.textContent = "🧵 Styling Suggestions for You";
+  heading.style.fontSize = "28px";
+  heading.style.paddingTop = "250px";
+  heading.style.textAlign = "center";
+  heading.style.color = "#0A400C";
+  stylingSection.appendChild(heading);
+
+
+  if (!suggestions.length) {
+    const noneText = document.createElement("p");
+    noneText.textContent = "No styling suggestions available.";
+    stylingSection.appendChild(noneText);
+    return;
+  }
+
+  // Create table
+  const table = document.createElement("table");
+  table.style.width = "100%";
+  table.style.borderCollapse = "collapse";
+  table.style.backgroundColor = "#fff";
+  table.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.05)";
+  table.style.borderRadius = "12px";
+  table.style.overflow = "hidden";
+  table.style.fontSize = "16px";
+  table.style.padding = " 50px";
+  // Table header
+  const thead = document.createElement("thead");
+ thead.innerHTML = `
+  <tr style="background-color:#819067; color: #0A400C;">
+    <th style="padding: 15px; border: 1px solid #ccc;">Element</th>
+    <th style="padding: 15px; border: 1px solid #ccc;">Try</th>
+    <th style="padding: 15px; border: 1px solid #ccc;">Avoid</th>
+    <th style="padding: 15px; border: 1px solid #ccc;">Why It Works</th>
+  </tr>
+`;
+  table.appendChild(thead);
+
+  // Table body
+  const tbody = document.createElement("tbody");
+tbody.style.backgroundColor = "#f7fdf5";
+suggestions.forEach((item, index) => {
+  const row = document.createElement("tr");
+  row.style.backgroundColor = index % 2 === 0 ? "#ffffff" : "#f7fdf5";
+
+  // Split by comma and trim each phrase
+  const tryWords = item.try.split(",").map(w => w.trim());
+
+  // Create clickable spans for each word/phrase
+  const tryCell = document.createElement("td");
+  tryCell.style.padding = "12px";
+  tryCell.style.border = "1px solid #ddd";
+  tryWords.forEach(word => {
+  const span = document.createElement("span");
+  span.textContent = word;
+  span.style.cursor = "pointer";
+  span.style.marginRight = "8px";
+  span.style.color = "#0A400C";
+  span.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const searchBar = document.getElementById('search-query');
+    if (searchBar) {
+      if (item.element === "Color Blocking" || item.element === "Prints & Lines") {
+        searchBar.value = word; // Only the word/phrase
+      } else {
+        searchBar.value = `${word} ${item.element.toLowerCase()}`;
+      }
+      searchBar.focus();
+    }
+  });
+  tryCell.appendChild(span);
+});
+
+  row.innerHTML = `
+    <td style="padding: 12px; border: 1px solid #ddd;"><strong>${item.element}</strong></td>
+    <td></td>
+    <td style="padding: 12px; border: 1px solid #ddd;">${item.avoid}</td>
+    <td style="padding: 12px; border: 1px solid #ddd;">${item.why}</td>
+  `;
+  // Replace the empty "Try" cell with your clickable spans
+  row.replaceChild(tryCell, row.children[1]);
+
+  row.addEventListener("click", () => {
+    // Optional: row click logic
+  });
+
+  tbody.appendChild(row);
+
+
+
+
+
+
+
+
+  // ...existing code...
+
+// Create clickable spans for each word/phrase in Avoid
+const avoidWords = item.avoid.split(",").map(w => w.trim());
+const avoidCell = document.createElement("td");
+avoidCell.style.padding = "12px";
+avoidCell.style.border = "1px solid #ddd";
+avoidWords.forEach(word => {
+  const span = document.createElement("span");
+  span.textContent = word;
+  span.style.cursor = "pointer";
+  span.style.marginRight = "8px";
+  span.style.textDecoration = "none";
+  span.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const searchBar = document.getElementById('search-query');
+    if (searchBar) {
+      if (item.element === "Color Blocking" || item.element === "Prints & Lines") {
+        searchBar.value = word;
+      } else {
+        searchBar.value = `${word} ${item.element.toLowerCase()}`;
+      }
+      searchBar.focus();
+    }
+  });
+  avoidCell.appendChild(span);
+});
+
+
+// ...existing code...
+
+row.innerHTML = `
+  <td style="padding: 12px; border: 1px solid #ddd;"><strong>${item.element}</strong></td>
+  <td></td>
+  <td></td>
+  <td style="padding: 12px; border: 1px solid #ddd;">${item.why}</td>
+`;
+// Replace the empty "Try" cell with your clickable spans
+row.replaceChild(tryCell, row.children[1]);
+// Replace the empty "Avoid" cell with your clickable spans
+row.replaceChild(avoidCell, row.children[2]);
+
+// ...existing code...
+});
+
+
+  table.appendChild(tbody);
+  stylingSection.appendChild(table);
+
+  document.body.appendChild(stylingSection);
+
+  stylingSection.scrollIntoView({ behavior: "smooth" });
+
+
+  
+  document.body.appendChild(table);
+
+  };
+ 
+
+
 
 
 
@@ -489,7 +484,7 @@ if (hasShortTorso) {
 
 generateStylingSuggestions(data);
 
-
+// Add hover preview for styling suggestions table cells
 
 
 
