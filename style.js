@@ -1,5 +1,9 @@
-
-
+const data = JSON.parse(localStorage.getItem("formData"));
+if (data) {
+  generateStylingSuggestions(data);
+} else {
+  console.error("Form data not found!");
+}
 
 
 // Function to generate styling suggestions based on body data
@@ -349,15 +353,13 @@ row.replaceChild(avoidCell, row.children[2]);
 
 
   table.appendChild(tbody);
-  stylingSection.appendChild(table);
+ 
 
-  document.body.appendChild(stylingSection);
+stylingSection.appendChild(table);               // ✅ Put table into section
+document.body.appendChild(stylingSection);       // ✅ Put section into page
+stylingSection.scrollIntoView({ behavior: "smooth" }); // ✅ Scroll to it
 
-  stylingSection.scrollIntoView({ behavior: "smooth" });
-
-
-  
-  document.body.appendChild(table);
+ 
 
   };
  
@@ -367,13 +369,6 @@ row.replaceChild(avoidCell, row.children[2]);
 
 
 
-
-
-
-
-generateStylingSuggestions(data);
-
-// Add hover preview for styling suggestions table cells
 
 
 
