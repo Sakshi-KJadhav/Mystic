@@ -110,3 +110,8 @@ document.getElementById('google-search-form').addEventListener('submit', functio
     window.open('https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(query), '_blank');
   }
 });
+
+const resultsSection = document.getElementById("results-section");
+resultsSection.appendChild(heading);
+resultsSection.appendChild(container);
+resultsSection.scrollIntoView({ behavior: "smooth" });
