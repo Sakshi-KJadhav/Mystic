@@ -1,46 +1,60 @@
-   window.addEventListener("scroll", () => {
- const navbar = document.getElementById("navbar");
-      if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
-    });
+// SCROLL EFFECTS
 window.addEventListener("scroll", () => {
-  const design = document.querySelector("slay-animate");
+  const navbar = document.getElementById("navbar");
   if (window.scrollY > 50) {
-    design.classList.add("scrolled");
+    navbar.classList.add("scrolled");
   } else {
-    design.classList.remove("scrolled");
+    navbar.classList.remove("scrolled");
+  }
+
+  const design = document.querySelector("slay-animate");
+  if (design) {
+    if (window.scrollY > 50) {
+      design.classList.add("scrolled");
+    } else {
+      design.classList.remove("scrolled");
+    }
   }
 });
-    // script.js
 
-document.querySelector("form").addEventListener("submit", (e) => {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("yourFormID");
 
-  const inputs = document.querySelectorAll("input, select");
-  const data = {};
-  inputs.forEach((input) => {
-    if (input.type === "number") {
-      data[input.placeholder.split(" ")[0].toLowerCase()] = parseFloat(input.value);
-    } else if (input.tagName === "SELECT") {
-      data.colorTone = input.value;
-    }
+  if (!form) {
+    console.error("Form not found!");
+    return;
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const data = {
+      bust: Number(document.getElementById("bust").value),
+      waist: Number(document.getElementById("waist").value),
+      hip: Number(document.getElementById("hip").value),
+      shoulder: Number(document.getElementById("shoulder").value),
+      torsoLength: Number(document.getElementById("torsoLength").value),
+      legLength: Number(document.getElementById("legLength").value)
+    };
+
+    localStorage.setItem("formData", JSON.stringify(data));
+
+    // Hide the form
+    form.style.display = "none";
+
+    // Show the result cards
+    document.getElementById("resultOptions").style.display = "flex";
+   document.getElementById("resultOptions").scrollIntoView({
+  behavior: "smooth"
+   });
   });
-
-  localStorage.setItem("formData", JSON.stringify(data));
-  window.location.href = "result.html";
+  
 });
- document.getElementById('photo-upload-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const input = document.getElementById('photo-upload');
-      const preview = document.getElementById('photo-preview');
-      if (input.files && input.files[0]) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          preview.innerHTML = '<img src="' + e.target.result + '" style="max-width:200px; border-radius:12px;"/>';
-        }
-        reader.readAsDataURL(input.files[0]);
-      }
-    });
+// Navigation handlers
+function showStyling() {
+  window.location.href = "styling.html";
+}
+
+function showOutfits() {
+  window.location.href = "outfit.html";
+}

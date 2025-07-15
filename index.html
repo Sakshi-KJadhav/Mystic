@@ -36,30 +36,17 @@
 </section>
 
 <div class="content">
-    <h2>Designed For You</h2>
+    <h2 id="foryou">Designed For You</h2>
 
-  <div class="mystic-image-marquee">
-  <div class="marquee-track">
-    <img src="images/visual1.jpg" alt="Visual 1">
-    <img src="images/visual2.jpg" alt="Visual 2">
-    <img src="images/visual3.jpg" alt="Visual 3">
-    <img src="images/visual4.jpg" alt="Visual 4">
-    <img src="images/visual5.jpg" alt="Visual 5">
-    <img src="images/visual6.jpg" alt="Visual 6">
-    <img src="images/visual7.jpg" alt="Visual 7">
-
-    <!-- Duplicate for seamless loop -->
-    <img src="images/visual1.jpg" alt="Visual 1">
-    <img src="images/visual2.jpg" alt="Visual 2">
-    <img src="images/visual3.jpg" alt="Visual 3">
-    <img src="images/visual4.jpg" alt="Visual 4">
-     <img src="images/visual5.jpg" alt="Visual 5">
-    <img src="images/visual6.jpg" alt="Visual 6">
-    <img src="images/visual7.jpg" alt="Visual 7">
+ <div class="track">
+<div class="images">
+  <img src="images/sketch.jpeg" alt="Visual 4">
+  </div>
+  <div class="images">
+    <img src="images/color.jpeg" alt="Visual 5">
     </div>
-     
- 
 </div>
+   
 
   
 
@@ -70,18 +57,40 @@
 </p>
      <div class="form-section" >
         <h2 >Enter Your Measurements</h2>
-         <form>
-          <input type="number" placeholder="Bust (in cm)" ><br>
-          <input type="number" placeholder="Waist (in cm)" ><br>
-          <input type="number" placeholder="Shoulders (in cm)"><br>
-          <input type="number" placeholder="Hips (in cm)" ><br>
-           <input type="number" placeholder="Torso-length (in cm)" ><br>
-            <input type="number" placeholder="Leg-length (in cm)" ><br>
-          <button type="submit" >Submit</button>
+        <form id="yourFormID">
+  <input type="number" id="bust" placeholder="Bust (in cm)" /><br>
+  <input type="number" id="waist" placeholder="Waist (in cm)" /><br>
+  <input type="number" id="shoulder" placeholder="Shoulders (in cm)" /><br>
+  <input type="number" id="hip" placeholder="Hips (in cm)" /><br>
+  <input type="number" id="torsoLength" placeholder="Torso-length (in cm)" /><br>
+  <input type="number" id="legLength" placeholder="Leg-length (in cm)" /><br>
+  <button type="submit">Submit</button>
+         
+
 </form>
+
       </div>
-    </div>
+     
+</div>
+<!-- The two cards container -->
+
+
+ <div id="resultOptions" class="card-container" style="display: none;">
+  <div class="option-card" onclick="showStyling()" style="background:url(/style.jpg) ;">
+    <h2> Styling Suggestions</h2>
+    <p>See tips tailored to your body shape</p>
   </div>
+
+  <div class="option-card" onclick="showOutfits()" style="background:url(/outfits.jpg) ;">
+    <h2> Outfit Recommendations</h2>
+    <p>Explore outfits that flatter your proportions</p>
+  </div>
+
+  </div>
+
+
+    </div>
+  
 
   <footer class="home-footer">
     
@@ -94,6 +103,7 @@
 <h3>Contact:  <a style="text-decoration: none;color:#0A400C;" href="https://mail.google.com/mail/?view=cm&fs=1&to=yourmystic13@gmail.com" >yourmystic13@gmail.com</a></h3>
     </div>
   </footer>
+
   <script src="/script.js"></script>
    
   
