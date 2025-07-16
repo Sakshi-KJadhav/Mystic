@@ -49,11 +49,10 @@ const appleShaped =
   data.waist >= data.hips * 0.75;
 
   const add = (element, tryThis, avoid, why) => {
-    const imageQuery = tryThis.split(",")[0] + " outfit";
-    suggestions.push({ element, try: tryThis, avoid, why, imageQuery });
+    const tryList = tryThis.split(",").map(w => w.trim());
+    const avoidList = avoid.split(",").map(w => w.trim());
+    suggestions.push({ element, tryList, avoidList, why });
   };
-
-  
 
   // --- NECKLINE ---
   if (invertedTriangle || bustShoulderDiff > 5) {
@@ -208,168 +207,109 @@ if (hasShortTorso) {
 
   const stylingSection = document.createElement("section");
   stylingSection.id = "styling-suggestions";
-   stylingSection.style.padding = "20px";
-  stylingSection.style.backgroundColor = "#f4f9f8";
+  stylingSection.style.padding = "20px";
+  stylingSection.style.backgroundColor = "#FEFAE0";
+  stylingSection.style.color = "#0A400C";
+  stylingSection.style.fontFamily = "'Michroma', sans-serif";
 
   const heading = document.createElement("h2");
   heading.textContent = "🧵 Styling Suggestions for You";
   heading.style.fontSize = "28px";
-  heading.style.paddingTop = "250px";
+  heading.style.paddingTop = "150px";
   heading.style.textAlign = "center";
-  heading.style.color = "#0A400C";
   stylingSection.appendChild(heading);
 
+  suggestions.forEach((item) => {
+    const block = document.createElement("div");
+    block.style.border = "2px solid #0A400C";
+    block.style.borderRadius = "12px";
+    block.style.margin = "40px auto";
+    block.style.maxWidth = "700px";
+    block.style.padding = "20px";
+    block.style.backgroundColor = "#fff";
+    block.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.05)";
 
-  if (!suggestions.length) {
-    const noneText = document.createElement("p");
-    noneText.textContent = "No styling suggestions available.";
-    stylingSection.appendChild(noneText);
-    return;
-  }
+    const title = document.createElement("h3");
+    title.textContent = item.element;
+    title.style.fontSize = "24px";
+    title.style.marginBottom = "20px";
+    block.appendChild(title);
 
-  // Create table
-  const table = document.createElement("table");
-  table.style.width = "100%";
-  table.style.borderCollapse = "collapse";
-  table.style.backgroundColor = "#fff";
-  table.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.05)";
-  table.style.borderRadius = "12px";
-  table.style.overflow = "hidden";
-  table.style.fontSize = "16px";
-  table.style.padding = " 50px";
-  // Table header
-  const thead = document.createElement("thead");
- thead.innerHTML = `
-  <tr style="background-color:#819067; color: #0A400C;">
-    <th style="padding: 15px; border: 1px solid #0A400C;">Element</th>
-    <th style="padding: 15px; border: 1px solid #0A400C;">Try</th>
-    <th style="padding: 15px; border: 1px solid #0A400C;">Avoid</th>
-    <th style="padding: 15px; border: 1px solid #0A400C;">Why It Works</th>
-  </tr>
-`;
-  table.appendChild(thead);
+    // Try section
+    const tryContainer = document.createElement("div");
+    const tryTitle = document.createElement("h4");
+    tryTitle.textContent = "✅ Try";
+    tryContainer.appendChild(tryTitle);
 
-  // Table body
-  const tbody = document.createElement("tbody");
-tbody.style.backgroundColor = "#f7fdf5";
-suggestions.forEach((item, index) => {
-  const row = document.createElement("tr");
-  row.style.backgroundColor = index % 2 === 0 ? "#ffffff" : "#f7fdf5";
+    const tryImage = document.createElement("img");
+    tryImage.style.width = "100%";
+    tryImage.style.height = "auto";
+    tryImage.style.borderRadius = "8px";
+    tryImage.style.marginBottom = "5px";
+    tryContainer.appendChild(tryImage);
 
-  // Split by comma and trim each phrase
-  const tryWords = item.try.split(",").map(w => w.trim());
+    const tryCaption = document.createElement("p");
+    tryCaption.style.textAlign = "center";
+    tryCaption.style.marginBottom = "10px";
+    tryContainer.appendChild(tryCaption);
+const tryLabel = document.createElement("p");
+    let tryIndex = 0;
+    const updateTryImage = () => {
+  tryImage.src = `/styling-images/${item.element.toLowerCase().replace(/\s+/g, "-")}/${item.tryList[tryIndex].toLowerCase().replace(/\s+/g, "-")}.jpg`;
+  tryLabel.textContent = item.tryList[tryIndex];
+  tryIndex = (tryIndex + 1) % item.tryList.length;
+};
 
-  // Create clickable spans for each word/phrase
-  const tryCell = document.createElement("td");
-  tryCell.style.padding = "12px";
-  tryCell.style.border = "1px solid #0A400C";
-  tryWords.forEach(word => {
-  const span = document.createElement("span");
-  span.textContent = word;
-  span.style.cursor = "pointer";
-  span.style.marginRight = "8px";
-  span.style.color = "#0A400C";
-  span.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const searchBar = document.getElementById('search-query');
-    if (searchBar) {
-      if (item.element === "Color Blocking" || item.element === "Prints & Lines") {
-        searchBar.value = word; // Only the word/phrase
-      } else {
-        searchBar.value = `${word} ${item.element.toLowerCase()}`;
-      }
-      searchBar.focus();
-    }
+    updateTryImage();
+    setInterval(updateTryImage, 5000);
+
+    block.appendChild(tryContainer);
+
+    // Avoid section
+    const avoidContainer = document.createElement("div");
+    const avoidTitle = document.createElement("h4");
+    avoidTitle.textContent = "🚫 Avoid";
+    avoidContainer.appendChild(avoidTitle);
+
+    const avoidImage = document.createElement("img");
+    avoidImage.style.width = "100%";
+    avoidImage.style.height = "auto";
+    avoidImage.style.borderRadius = "8px";
+    avoidImage.style.marginBottom = "5px";
+    avoidContainer.appendChild(avoidImage);
+
+    const avoidCaption = document.createElement("p");
+    avoidCaption.style.textAlign = "center";
+    avoidCaption.style.marginBottom = "10px";
+    avoidContainer.appendChild(avoidCaption);
+
+    let avoidIndex = 0;
+    const updateAvoidImage = () => {
+      avoidImage.src = `/styling-images/${item.element.toLowerCase().replace(/\s+/g, "-")}/${item.avoidList[avoidIndex].toLowerCase().replace(/\s+/g, "-")}.jpg`;
+      avoidCaption.textContent = item.avoidList[avoidIndex];
+      avoidIndex = (avoidIndex + 1) % item.avoidList.length;
+    };
+   
+
+
+    block.appendChild(avoidContainer);
+
+    // Why section
+    const whySection = document.createElement("div");
+    const whyTitle = document.createElement("h4");
+    whyTitle.textContent = "💡 Why It Works";
+    whySection.appendChild(whyTitle);
+
+    const whyText = document.createElement("p");
+    whyText.textContent = item.why;
+    whySection.appendChild(whyText);
+    block.appendChild(whySection);
+
+    stylingSection.appendChild(block);
   });
-  tryCell.appendChild(span);
-});
 
-  row.innerHTML = `
-    <td style="padding: 12px; border: 1px solid #0A400C;"><strong>${item.element}</strong></td>
-    <td></td>
-    <td style="padding: 12px; border: 1px solid #0A400C;">${item.avoid}</td>
-    <td style="padding: 12px; border: 1px solid #0A400C;">${item.why}</td>
-  `;
-  // Replace the empty "Try" cell with your clickable spans
-  row.replaceChild(tryCell, row.children[1]);
-
-  row.addEventListener("click", () => {
-    // Optional: row click logic
-  });
-
-  tbody.appendChild(row);
-
-
-
-
-
-
-
-
-  // ...existing code...
-
-// Create clickable spans for each word/phrase in Avoid
-const avoidWords = item.avoid.split(",").map(w => w.trim());
-const avoidCell = document.createElement("td");
-avoidCell.style.padding = "12px";
-avoidCell.style.border = "1px solid #0A400C";
-avoidWords.forEach(word => {
-  const span = document.createElement("span");
-  span.textContent = word;
-  span.style.cursor = "pointer";
-  span.style.marginRight = "8px";
-  span.style.textDecoration = "none";
-  span.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const searchBar = document.getElementById('search-query');
-    if (searchBar) {
-      if (item.element === "Color Blocking" || item.element === "Prints & Lines") {
-        searchBar.value = word;
-      } else {
-        searchBar.value = `${word} ${item.element.toLowerCase()}`;
-      }
-      searchBar.focus();
-    }
-  });
-  avoidCell.appendChild(span);
-});
-
-
-// ...existing code...
-
-row.innerHTML = `
-  <td style="padding: 12px; border: 1px solid #0A400C;"><strong>${item.element}</strong></td>
-  <td></td>
-  <td></td>
-  <td style="padding: 12px; border: 1px solid #0A400C;">${item.why}</td>
-`;
-// Replace the empty "Try" cell with your clickable spans
-row.replaceChild(tryCell, row.children[1]);
-// Replace the empty "Avoid" cell with your clickable spans
-row.replaceChild(avoidCell, row.children[2]);
-
-// ...existing code...
-});
-
-
-  table.appendChild(tbody);
- 
-
-stylingSection.appendChild(table);               // ✅ Put table into section
-document.body.appendChild(stylingSection);       // ✅ Put section into page
-stylingSection.scrollIntoView({ behavior: "smooth" }); // ✅ Scroll to it
-
- 
-
-  };
- 
-
-
-
-
-
-
-
-
+  document.body.appendChild(stylingSection);
+  stylingSection.scrollIntoView({ behavior: "smooth" });
+}
 
 console.log("Result.js is loaded");
